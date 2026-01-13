@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ANGULAR JS MVC PRC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|e:\\angular js mvc prc\\office360\\areas\\account\\controllers\\pcrreportmanagmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|solutionrelative:office360\\areas\\account\\controllers\\pcrreportmanagmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|e:\\angular js mvc prc\\office360\\areas\\account\\views\\pcrreportmanagment_ui\\view_pcrcategorysummary_ui.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|solutionrelative:office360\\areas\\account\\views\\pcrreportmanagment_ui\\view_pcrcategorysummary_ui.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|e:\\angular js mvc prc\\office360\\areas\\account\\scripts\\pcrreportmanagment_ui_script\\view_pcrcategorysummary_ui.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|solutionrelative:office360\\areas\\account\\scripts\\pcrreportmanagment_ui_script\\view_pcrcategorysummary_ui.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "View_PCRCategorySummary_UI.js",
+              "DocumentMoniker": "E:\\ANGULAR JS MVC PRC\\office360\\Areas\\Account\\Scripts\\PCRReportManagment_UI_Script\\View_PCRCategorySummary_UI.js",
+              "RelativeDocumentMoniker": "office360\\Areas\\Account\\Scripts\\PCRReportManagment_UI_Script\\View_PCRCategorySummary_UI.js",
+              "ToolTip": "E:\\ANGULAR JS MVC PRC\\office360\\Areas\\Account\\Scripts\\PCRReportManagment_UI_Script\\View_PCRCategorySummary_UI.js",
+              "RelativeToolTip": "office360\\Areas\\Account\\Scripts\\PCRReportManagment_UI_Script\\View_PCRCategorySummary_UI.js",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAmwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-12T13:29:33.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "View_PCRCategorySummary_UI.cshtml",
+              "DocumentMoniker": "E:\\ANGULAR JS MVC PRC\\office360\\Areas\\Account\\Views\\PCRReportManagment_UI\\View_PCRCategorySummary_UI.cshtml",
+              "RelativeDocumentMoniker": "office360\\Areas\\Account\\Views\\PCRReportManagment_UI\\View_PCRCategorySummary_UI.cshtml",
+              "ToolTip": "E:\\ANGULAR JS MVC PRC\\office360\\Areas\\Account\\Views\\PCRReportManagment_UI\\View_PCRCategorySummary_UI.cshtml",
+              "RelativeToolTip": "office360\\Areas\\Account\\Views\\PCRReportManagment_UI\\View_PCRCategorySummary_UI.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAQwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-12T13:29:04.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PCRReportManagmentController.cs",
+              "DocumentMoniker": "E:\\ANGULAR JS MVC PRC\\office360\\Areas\\Account\\Controllers\\PCRReportManagmentController.cs",
+              "RelativeDocumentMoniker": "office360\\Areas\\Account\\Controllers\\PCRReportManagmentController.cs",
+              "ToolTip": "E:\\ANGULAR JS MVC PRC\\office360\\Areas\\Account\\Controllers\\PCRReportManagmentController.cs",
+              "RelativeToolTip": "office360\\Areas\\Account\\Controllers\\PCRReportManagmentController.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAswHgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:28:01.481Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

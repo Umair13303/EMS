@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Employee List";
+    Layout = "~/Views/Shared/_LayOut.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="bootstrap-admin-panel-content form-group">
+        <table class="table table-striped table-bordered order-column stripe table-sm table-hover" style="width: 100%" id="TblEmployeeList">
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+}
+
+    <script src="~/Areas/HiringAndRecruitmentModule/JsScript/EmployeeList.js"></script>
+

@@ -1,0 +1,177 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+.card-body {
+    overflow: auto; /* Prevent content from overflowing */
+}
+
+.table-responsive {
+    max-width: 100%; 
+    overflow-x: auto; 
+}
+
+.compact-table {
+    margin: 0; 
+    border-collapse: collapse;
+    word-wrap: break-word; 
+    table-layout: fixed; 
+
+}
+</style>
+
+@using (Html.BeginForm())
+{
+
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);">Student</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);">Enrollment(s)</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <span>@ViewBag.Title</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+
+
+    <div class="card" style="margin-top:1%;width:100%">
+        <div class="card-header">
+            <nav class="nav nav-pills nav-fill">
+                <a class="nav-link tab-pills" href="#">
+                    <i class="fas fa-file-archive" style="margin-right: 8px;"></i>
+                    Admission Detail
+                </a>
+                <a class="nav-link tab-pills" href="#">
+                    <i class="fas fa-user-cog" style="margin-right: 8px;"></i>
+                    Bulk Record Upload
+                </a>
+       
+
+            </nav>
+        </div>
+
+        <div class="card-body">
+            <div class="card-body">
+                <div class="tab d-none">
+                    <div class="row mb-3">
+                        <div class="col-sm-12 col-md-8">
+                            <div class="form-group">
+                                @Html.Label("Campus", new { @class = "col-form-label", @for = "DropDownListCampus" })
+                                @Html.DropDownList("DropDownListCampus", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampus" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Session", new { @class = "col-form-label", @for = "DropDownListSession" })
+                                @Html.DropDownList("DropDownListSession", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSession" })
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Registered Period", new { @class = "col-form-label", @for = "DropDownListRegisteredPeriod" })
+                                @Html.DropDownList("DropDownListRegisteredPeriod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListRegisteredPeriod" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Class", new { @class = "col-form-label", @for = "DropDownListClass" })
+                                @Html.DropDownList("DropDownListClass", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListClass" })
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Admission Catagory", new { @class = "col-form-label", @for = "DropDownListAdmissionCatagory" })
+                                @Html.DropDownList("DropDownListAdmissionCatagory", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2 form-control form-control-sm basic requiredtxt select2-hidden-accessible", @data_toggle = "select2", id = "DropDownListAdmissionCatagory" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="tab d-none">
+                    <div class="row mb-3">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Excel File", new { @class = "col-form-label", @for = "UploadExcelFile" })
+
+                                @Html.TextBox("UploadExcelFile", null, new { @class = "form-control ", type = "file", accept = ".xls,.xlsx", placeholder = "Please Upload Excel File  Here!", @id = "UploadExcelFile" })
+
+                            </div>
+                            <button type="button" class="btn btn-info" id="ButtonPopulateExcel">
+                                <i class="fa fa-sync-alt"></i> Populate Excel Sheet
+                            </button>
+                        </div>
+
+
+                        <div class="bootstrap-admin-panel-content" style="display :block">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-sm order-column stripe table-hover compact-table"
+                                       style="width: 100%; table-layout: fixed;" id="MainTableEnrollmentList">
+                                    <tbody id="TableBodyMainTableEnrollmentList">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+        @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
+
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+                <input type="button" class="btn btn-link" id="back_button" onclick="back()" value="Back" />
+                <input type="button" class="btn btn-primary ms-2" id="next_button" onclick="next()" value="Next" />
+            </div>
+
+            <div class="DivDB_OperationButton" style="display:none">
+
+                <div class="d-flex align-items-center" id="DivButtonSubmitDown"  style="display:none">
+                    <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Submit" />
+                    <i class="fa fa-arrow-up ms-2"></i>
+                </div>
+                
+                @*<div class="d-flex align-items-center" id="DivButtonUpdateDown"  style="display:none">
+                    <input type="button" class="btn btn-info" id="ButtonUpdateDown" value="Update" />
+                    <i class="fa fa-arrow-up ms-2"></i>
+                </div>*@
+
+
+            </div>
+        </div>
+    </div>
+
+
+}
+<script src="~/Packages/SheetJS.js"></script>
+<script src="~/SiteAssets/Uttility/Wizard_Stepper.js"></script>
+
+<script src="~/SiteScripts/AStudent/MEnrollmentUI/CreateNewEnrStudentBulkOperation.js"></script>

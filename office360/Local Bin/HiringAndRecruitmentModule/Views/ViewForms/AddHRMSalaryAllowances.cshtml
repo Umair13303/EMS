@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "HRM Salary Allowances";
+    Layout = "~/Views/Shared/_LayOut.cshtml";
+}
+@using (Html.BeginForm())
+{
+            <form>
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        @Html.Label("Name", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxAllowanceName", null, new { @class = "form-control", placeholder = "Please Enter Allowance Name Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        <label for="DropDownAllowanceType" class="col-sm-3 col-form-label">Allowance Type</label>
+                        <div class="col-sm-7 select2-purple">
+                            @Html.DropDownList("DropDownAllowanceType", Enumerable.Empty<SelectListItem>(), new { @class = "select2 form-control select2-purple", id = "DropDownAllowanceType", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        @Html.Label("Allowance Amt", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBox("TextBoxAmount", null, new { @class = "form-control", placeholder = "Please Enter Allowance Amount Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        @Html.Label("Allowance %", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBox("TextBoxPercentage", null, new { @class = "form-control", placeholder = "Please Enter Allowance % Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        @Html.Label("Effective From", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxEffectiveFrom", null, new { @class = "form-control datetimepicker", placeholder = "Please Enter Effective From Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        @Html.Label("Expired On", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxExpiredOn", null, new { @class = "form-control datetimepicker", placeholder = "Please Enter Expired On Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m-t-20 text-center btn btn-primary">
+                    <i class="fa fa-save btn"></i><span>
+                        <input type="button" class="btn btn-primary" id="SubmitDown" value="Save Allowance" />
+                    </span>
+                </div>
+
+
+
+            </form>
+}
+
+
+<script src="~/Areas/CRMModuleAEO/JsScript/AddHRMSalaryAllowances.js"></script>

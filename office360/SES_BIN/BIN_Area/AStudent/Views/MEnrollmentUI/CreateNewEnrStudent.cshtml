@@ -1,0 +1,310 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);">Student</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);">Enrollment(s)</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <span>@ViewBag.Title</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+
+
+    <div class="card" style="margin-top:1%;width:100%">
+        <div class="card-header">
+            <nav class="nav nav-pills nav-fill">
+                <a class="nav-link tab-pills" href="#">
+                    <i class="fas fa-file-archive" style="margin-right: 8px;"></i>
+                    Admission Detail
+                </a>
+                <a class="nav-link tab-pills" href="#">
+                    <i class="fas fa-user-cog" style="margin-right: 8px;"></i>
+                    Student Detail
+                </a>
+                <a class="nav-link tab-pills" href="#">
+                    <i class="fas fa-cogs" style="margin-right: 8px;"></i>
+                    Family Detail
+                </a>
+                <a class="nav-link tab-pills" href="#">
+                    <i class="fas fa-cogs" style="margin-right: 8px;"></i>
+                    Contact Detail
+                </a>
+
+                @*<a class="nav-link tab-pills" href="#">
+                        <i class="fas fa-print" style="margin-right: 8px;"></i>
+                        Generate Challan
+                    </a>*@
+
+            </nav>
+        </div>
+
+        <div class="card-body">
+            <div class="tab d-none">
+                <div class="row mb-3">
+                    <div class="col-sm-12 col-md-8">
+                        <div class="form-group">
+                            @Html.Label("Campus", new { @class = "col-form-label", @for = "DropDownListCampus" })
+                            @Html.DropDownList("DropDownListCampus", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampus" })
+                        </div>
+                    </div>
+
+                    @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+                    {
+                        <div class="col-sm-12 col-md-8">
+                            <div class="form-group">
+                                @Html.Label("Student ( For Edit )", new { @class = "col-form-label", @for = "DropDownListStudent" })
+                                @Html.DropDownList("DropDownListStudent", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListStudent" })
+                                <button type="button" class="btn btn-info" id="ButtonSubmitGetInfoForEdit">
+                                    <i class="fa fa-sync-alt"></i> Load Information
+                                </button>
+                            </div>
+                        </div>
+                    }
+
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Session", new { @class = "col-form-label", @for = "DropDownListSession" })
+                            @Html.DropDownList("DropDownListSession", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSession" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Registered Period", new { @class = "col-form-label", @for = "DropDownListRegisteredPeriod" })
+                            @Html.DropDownList("DropDownListRegisteredPeriod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListRegisteredPeriod" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Class", new { @class = "col-form-label", @for = "DropDownListClass" })
+                            @Html.DropDownList("DropDownListClass", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListClass" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Admission Catagory", new { @class = "col-form-label", @for = "DropDownListAdmissionCatagory" })
+                            @Html.DropDownList("DropDownListAdmissionCatagory", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2 form-control form-control-sm basic requiredtxt select2-hidden-accessible", @data_toggle = "select2", id = "DropDownListAdmissionCatagory" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab d-none">
+                <div class="row mb-3">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Registration No#", new { @class = "col-form-label", @for = "TextBoxRegistrationNo" })
+                            @Html.TextBox("TextBoxRegistrationNo", null, new { @class = "form-control form-control-sm", placeholder = "Please Enter Registration No Here!", @id = "TextBoxRegistrationNo" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Student Name", new { @class = "col-form-label", @for = "TextBoxStudentName" })
+                            @Html.TextBox("TextBoxStudentName", null, new { @class = "form-control required", placeholder = "Please Enter Student Name Here!", @id = "TextBoxStudentName" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Student CNIC", new { @class = "col-form-label", @for = "TextBoxStudentCNIC" })
+                            @Html.TextBox("TextBoxStudentCNIC", null, new { @class = "form-control CNICNumber required", placeholder = "Please Enter Student CNIC No Here!", @id = "TextBoxStudentCNIC" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Birth Date", new { @class = "col-form-label", @for = "TextBoxBirthDate" })
+                            @Html.TextBox("TextBoxBirthDate", null, new { @class = "form-control DatePickerSimple required", placeholder = "Please Enter Birth Date Here!", @id = "TextBoxBirthDate" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Religion", new { @class = "col-form-label", @for = "DropDownListReligion" })
+                            @Html.DropDownList("DropDownListReligion", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListReligion" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Country", new { @class = "col-form-label", @for = "DropDownListCountry" })
+                            @Html.DropDownList("DropDownListCountry", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCountry" })
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Domicile Disctric", new { @class = "col-form-label", @for = "TextBoxDomicileDistrict" })
+                            @Html.TextBox("TextBoxDomicileDistrict", null, new { @class = "form-control ", placeholder = "Please Enter Domicile District Here!", @id = "TextBoxDomicileDistrict" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab d-none">
+                <div class="row mb-3">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Father Name", new { @class = "col-form-label", @for = "TextBoxFatherName" })
+                            @Html.TextBox("TextBoxFatherName", null, new { @class = "form-control", placeholder = "Please Enter Father Name Here!", @id = "TextBoxFatherName" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Father CNIC", new { @class = "col-form-label", @for = "TextBoxFatherCNIC" })
+                            @Html.TextBox("TextBoxFatherCNIC", null, new { @class = "form-control CNICNumber", placeholder = "Please Enter Father CNIC Here!", @id = "TextBoxFatherCNIC" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Occupation", new { @class = "col-form-label", @for = "DropDownListOccupation" })
+                            @Html.DropDownList("DropDownListOccupation", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListOccupation" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <div class="n-chk">
+                                <label class="new-control new-checkbox new-checkbox-rounded checkbox-primary">
+                                    @Html.CheckBox("CheckBoxIsFatherAlive", new { @class = "new-control-input", id = "CheckBoxIsFatherAlive" })
+                                    <span class="new-control-indicator"></span>Is Father Alive
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Guardian Name", new { @class = "col-form-label", @for = "TextBoxGuardianName" })
+                            @Html.TextBox("TextBoxGuardianName", null, new { @class = "form-control", placeholder = "Please Enter Guardian Name Here!", @id = "TextBoxGuardianName" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Guardian CNIC", new { @class = "col-form-label", @for = "TextBoxGuardianCNIC" })
+                            @Html.TextBox("TextBoxGuardianCNIC", null, new { @class = "form-control CNICNumber", placeholder = "Please Enter Guardian CNIC Here!", @id = "TextBoxGuardianCNIC" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="tab d-none">
+                <div class="row mb-3">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Mobile (Student)", new { @class = "col-form-label", @for = "TextBoxStudentMobile" })
+                            @Html.TextBox("TextBoxStudentMobile", null, new { @class = "form-control MobileNumber", placeholder = "Please Enter Student Mobile # Here!", @id = "TextBoxStudentMobile" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Email (Student)", new { @class = "col-form-label", @for = "TextBoxStudentEmail" })
+                            @Html.TextBox("TextBoxStudentEmail", null, new { @class = "form-control EmailAddress", placeholder = "Please Enter Student Email Here!", @id = "TextBoxStudentEmail" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Mobile (Parents)", new { @class = "col-form-label", @for = "TextBoxParentMobile" })
+                            @Html.TextBox("TextBoxParentMobile", null, new { @class = "form-control MobileNumber", placeholder = "Please Enter Parents Mobile # Here!", @id = "TextBoxParentMobile" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Land Line (Home)", new { @class = "col-form-label", @for = "TextBoxLandLine" })
+                            @Html.TextBox("TextBoxLandLine", null, new { @class = "form-control PhoneNumber", placeholder = "Please Enter Student Land Line # Here!", @id = "TextBoxLandLine" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Mobile (Emergency)", new { @class = "col-form-label", @for = "TextBoxEmergencyMobile" })
+                            @Html.TextBox("TextBoxEmergencyMobile", null, new { @class = "form-control MobileNumber", placeholder = "Please Enter Emergency Mobile # Here!", @id = "TextBoxEmergencyMobile" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                        <div class="form-group">
+                            @Html.Label("Address", new { @class = "col-form-label", @for = "TextBoxAddress" })
+                            @Html.TextArea("TextBoxAddress", null, new { @class = "form-control", placeholder = "Please Enter Address Here!", @id = "TextBoxAddress" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        @Html.TextBox("HiddenFieldEnrStudentGuID", null, new { @class = "form-control", Value = ViewBag.EnrStudentGUID, hidden = true, @id = "HiddenFieldEnrStudentGuID" })
+        @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
+
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+                <input type="button" class="btn btn-link" id="back_button" onclick="back()" value="Back" />
+                <input type="button" class="btn btn-primary ms-2" id="next_button" onclick="next()" value="Next" />
+            </div>
+
+            @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.INSERT_DATA_INTO_DB))
+            {
+                <div class="DivDB_OperationButton" style="display:none">
+
+                    <div class="d-flex align-items-center" id="DivButtonSubmitDown" style="display:none">
+                        <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Submit" />
+                        <i class="fa fa-arrow-up ms-2"></i>
+                    </div>
+                </div>
+            }
+            @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+            {
+                <div class="DivDB_OperationButton" style="display:none">
+
+                    <div class="d-flex align-items-center" id="DivButtonUpdateDown" style="display:none">
+                        <input type="button" class="btn btn-info" id="ButtonUpdateDown" value="Update" />
+                        <i class="fa fa-arrow-up ms-2"></i>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+}
+
+<script src="~/SiteAssets/Uttility/Wizard_Stepper.js"></script>
+
+<script src="~/SiteScripts/AStudent/MEnrollmentUI/CreateNewEnrStudent.js"></script>

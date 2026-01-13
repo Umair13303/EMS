@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Add Patient Here!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxName" class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="TextBoxName" placeholder="Please Enter Name Here!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxFatherHusbandName" class="col-sm-3 col-form-label">Father/Husband</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="TextBoxFatherHusbandName" placeholder="Please Enter Father or Husband Name Here!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxCnic" class="col-sm-3 col-form-label">CNIC No</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="TextBoxCnic" placeholder="Please Enter CNIC Here!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="DropDownGender" class="col-sm-3 col-form-label">Gender</label>
+                            <div class="col-sm-5">
+                                <select id="DropDownGender" class="form-control">
+                                    <option value="Choose Your Gender">Choose Your Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Transgender">Transgender</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxPhone" class="col-sm-3 col-form-label">Contact No:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="TextBoxPhone" placeholder="Please Enter Phone Here!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxDOB" class="col-sm-3 col-form-label">Date of Birth</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control datetimepicker" onchange="calculateAge()" id="TextBoxDOB" placeholder="Please Enter Date of Birth Here!">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxAge" class="col-sm-3 col-form-label">Age</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="TextBoxAge" placeholder="Please Enter Age Here!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxEmail" class="col-sm-3 col-form-label">Email Address</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="TextBoxEmail" placeholder="Please Enter Email Here!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxUserName" class="col-sm-3 col-form-label">User Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="TextBoxUserName" placeholder="Please Enter User Name Here!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="DropDownCity" class="col-sm-3 col-form-label">City</label>
+                            <div class="col-sm-8">
+                                <select class="form-control select2bs4" id="DropDownCity" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="DropDownCountry" class="col-sm-3 col-form-label">Country</label>
+                            <div class="col-sm-8">
+                                <select id="DropDownCountry" class="form-control" disabled>
+                                    <option value="1">Pakistan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="TextBoxAddress" class="col-sm-3 col-form-label">Address</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="TextBoxAddress" placeholder="Please enter address here!" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="CheckBoxIsPatientActive" class="col-sm-4 col-form-label">Is Patient Active</label>
+                            <div class="col-sm-8">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="CheckBoxIsPatientActive" checked>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6" id="DivTextBoxDisctontinuationDate" style="display:none">
+                        <div class="form-group row">
+                            <label for="TextBoxDisctontinuationDate" class="col-sm-3 col-form-label">Disctontinuation Date</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control datemask datetimepicker" id="TextBoxDisctontinuationDate" placeholder="Please Enter Disctontinuation Date Here!">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6" id="DivDropDownReasonToInActive" style="display:none">
+                        <div class="form-group row">
+                            <label for="DropDownReasonToInActive" class="col-sm-3 col-form-label">Reason To InActive</label>
+                            <div class="col-sm-8">
+                                <select id="DropDownReasonToInActive" class="form-control select2" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                    <option value="NULL">Choose Reason</option>
+                                    <option value="1">Patient Cured</option>
+                                    <option value="2">Deceased</option>
+                                    <option value="3">Other Reason</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="m-t-20 text-center">
+                    <button class="btn btn-primary submit-btn" id="Submit">Add Patient</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+<script src="~/Areas/PatientModuleArea/JsScripts/Patients/AddPatient.js"></script>

@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "AEO Assement Setup";
+    Layout = "~/Views/Shared/_LayOut.cshtml";
+}
+
+
+<form>
+
+
+
+
+    <div class="form-group row">
+        <label for="TextBoxEventName" class="col-sm-2 col-form-label">Event Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="TextBoxEventName" placeholder="Please Enter Event Name Here!">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="TextBoxStartDate" class="col-sm-2 col-form-label">Start Date</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control datetimepicker" id="TextBoxStartDate" placeholder="Please Enter Start Date< Here!">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="TextBoxEndDate" class="col-sm-2 col-form-label">End Date</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control datetimepicker " id="TextBoxEndDate" placeholder="Please Enter End Date Here!">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="TextBoxEventVenue" class="col-sm-2 col-form-label">Event Venue</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="TextBoxEventVenue" placeholder="Please Enter Event Venue Here!">
+        </div>
+    </div>
+    <div class="m-t-20 text-center">
+        <button class="btn btn-primary submit-btn" id="SaveNewEvent">Save New Event</button>
+    </div>
+</form>
+
+<h4 style="color:navy;border:solid;margin-top:10px">EVENT LIST</h4>
+
+<div id="DivEventList">
+    <div class="bootstrap-admin-panel-content form-group">
+        <table class="table table-striped table-bordered order-column stripe table-sm table-hover" style="width: 100%" id="EventListTable">
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="~/Areas/CRMModuleAEO/JsScript/AEOAssementSetup.js"></script>

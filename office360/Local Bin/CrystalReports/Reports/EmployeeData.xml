@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="yes"?>
+<EmployeeDataSet>
+  <xs:schema id="EmployeeDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="EmployeeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Employees">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EmployeeID" type="xs:int" minOccurs="0" />
+                <xs:element name="EmployeeName" type="xs:string" minOccurs="0" />
+                <xs:element name="Department" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Employees>
+    <EmployeeID>1</EmployeeID>
+    <EmployeeName>Muhammad Umair Akbar</EmployeeName>
+    <Department>Intensive Care Unit (ICU)</Department>
+  </Employees>
+  <Employees>
+    <EmployeeID>2</EmployeeID>
+    <EmployeeName>Talha Arif</EmployeeName>
+    <Department>Surgery Department</Department>
+  </Employees>
+  <Employees>
+    <EmployeeID>3</EmployeeID>
+    <EmployeeName>Sufyan Kian</EmployeeName>
+    <Department>Cardiology Department</Department>
+  </Employees>
+  <Employees>
+    <EmployeeID>4</EmployeeID>
+    <EmployeeName>546546</EmployeeName>
+    <Department>Cardiology Department</Department>
+  </Employees>
+</EmployeeDataSet>

@@ -1,0 +1,203 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+
+
+
+{
+
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>@ViewBag.Title</h4>
+                    </div>
+                </div>
+                <nav class="breadcrumb-one" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Company</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Branches</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><span>@ViewBag.Title</span></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+
+        <div class="card" style="margin-top:1%;width:100%">
+            <div class="card-body">
+                <form>
+
+                    @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+                    {
+                        <div class="row mb-0">
+                            <div class="col-sm-12 col-md-8">
+                                <div class="form-group">
+                                    @Html.Label("Campus ( For Edit )", new { @class = "col-form-label", @for = "DropDownListCampus" })
+                                    @Html.DropDownList("DropDownListCampus", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampus" })
+                                    <button type="button" class="btn btn-info" id="ButtonSubmitGetInfoForEdit">
+                                        <i class="fa fa-sync-alt"></i> Load Information
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Campus Detail</h3>
+
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Campus Name", new { @class = "col-form-label", @for = "TextBoxDescription" })
+                                @Html.TextBox("TextBoxDescription", null, new { @class = "form-control", placeholder = "Please Enter Campus Name Here!", @id = "TextBoxDescription" })
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Campus Type", new { @class = "col-form-label", @for = "DropDownListCampusType" })
+                                @Html.DropDownList("DropDownListCampusType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampusType" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Org Type", new { @class = "col-form-label", @for = "DropDownListOrganizationType" })
+                                @Html.DropDownList("DropDownListOrganizationType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListOrganizationType" })
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Address Detail</h3>
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Country", new { @class = "col-form-label", @for = "DropDownListCountry" })
+                                @Html.DropDownList("DropDownListCountry", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCountry" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("City", new { @class = "col-form-label", @for = "DropDownListCity" })
+                                @Html.DropDownList("DropDownListCity", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCity" })
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <div class="form-group">
+                                @Html.Label("Address", new { @class = "col-form-label", @for = "TextBoxAddress" })
+                                @Html.TextArea("TextBoxAddress", null, new { @class = "form-control", placeholder = "Please Enter Address Here!", @id = "TextBoxAddress" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Contact Detail</h3>
+
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Contact", new { @class = "col-form-label", @for = "TextBoxContactNo" })
+                                @Html.TextBox("TextBoxContactNo", null, new { @class = "form-control PhoneNumber", placeholder = "Please Enter Contact Here!", @id = "TextBoxContactNo" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Email", new { @class = "col-form-label", @for = "TextBoxEmailAddress" })
+                                @Html.TextBox("TextBoxEmailAddress", null, new { @class = "form-control EmailAddress", placeholder = "Please Enter Email Here!", @id = "TextBoxEmailAddress" })
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Settings</h3>
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Policy Period", new { @class = "col-form-label", @for = "DropDownListPolicyPeriod" })
+                                @Html.DropDownList("DropDownListPolicyPeriod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListPolicyPeriod" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Challan Method", new { @class = "col-form-label", @for = "DropDownListChallanMethod" })
+                                @Html.DropDownList("DropDownListChallanMethod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListChallanMethod" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Roll Call System", new { @class = "col-form-label", @for = "DropDownListRollCallSystem" })
+                                @Html.DropDownList("DropDownListRollCallSystem", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListRollCallSystem" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Billing Method", new { @class = "col-form-label", @for = "DropDownListBillingMethod" })
+                                @Html.DropDownList("DropDownListBillingMethod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListBillingMethod" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Study Levels", new { @class = "col-form-label", @for = "DropDownListStudyLevels" })
+                                @Html.DropDownList("DropDownListStudyLevels", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", multiple = "multiple", @data_toggle = "select2", id = "DropDownListStudyLevels" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Study Groups", new { @class = "col-form-label", @for = "DropDownListStudyGroups" })
+                                @Html.DropDownList("DropDownListStudyGroups", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", multiple = "multiple", @data_toggle = "select2", id = "DropDownListStudyGroups" })
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Misc</h3>
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("NTN Number", new { @class = "col-form-label", @for = "TextBoxNTNNo" })
+                                @Html.TextBox("TextBoxNTNNo", null, new { @class = "form-control NTNNumber", placeholder = "Please Enter NTN Here!", @id = "TextBoxNTNNo" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                @Html.Label("Remarks", new { @class = "col-form-label", @for = "TextBoxRemarks" })
+                                @Html.TextBox("TextBoxRemarks", null, new { @class = "form-control", placeholder = "Please Enter Remarks Here!", @id = "TextBoxRemarks" })
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                @Html.TextBox("HiddenFieldCampusGuID", null, new { @class = "form-control", Value = ViewBag.CampusGuID, hidden = true, @id = "HiddenFieldCampusGuID" })
+                @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
+
+            </div>
+            <div class="card-footer">
+                <div class="col-sm-12 form-group">
+                    <div class="card-heading" id="DivButtonSubmitDown" style="display:none">
+                        <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Sumbit" />
+                        <i class="fa fa-arrow-up"></i>
+                    </div>
+                    <div class="card-heading" id="DivButtonUpdateDown" style="display:none">
+                        <input type="button" class="btn btn-warning" id="ButtonUpdateDown" value="Update" />
+                        <i class="fa fa-arrow-up"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+        <script src="~/SiteScripts/ACompany/MBranchUI/CreateNewGeneralBranch.js"></script>

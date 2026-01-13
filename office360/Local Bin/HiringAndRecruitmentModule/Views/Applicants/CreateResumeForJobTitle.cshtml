@@ -1,0 +1,237 @@
+﻿@using System.Web.Mvc.Html
+
+@{
+    ViewBag.Title = "Apply For Job";
+    Layout = "~/Views/Shared/_LayOut.cshtml";
+}
+
+
+<div id="successAlertContainer"></div>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="col-md-12 col-sm-6 m-b-10" style="margin-top:8px">
+                    <div class="form-row alert alert-success" style="border:inset;">
+                        <h6 class="col-md-12" style="font-size:20px;font-weight:bolder">Advertisment Details</h6>
+                        <div class="col-md-11" style="text-align:left">
+                            <span Id="AdvertismentCodeLabel">Advertisment Type:</span>
+                            <span class="AdvertismentType"></span>
+                        </div>
+                        <div class="col-md-11" style="text-align:left">
+                            <span Id="JobDescriptionLabel">Description:</span>
+                            <span class="JobDescription"></span>
+                        </div>
+                        <div class="col-md-6" style="text-align:left">
+                            <span Id="StartDateLabel">Start Date:</span>
+                            <span class="StartDate"></span>
+                        </div>
+                        <div class="col-md-6" style="text-align:right">
+                            <span Id="EndDateLabel">End Date:</span>
+                            <span class="EndDate"></span>
+                        </div>
+                        <div class="col-md-6" style="text-align:left">
+                            <span Id="StatusLabel">Status:</span>
+                            <span class="Status"></span>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <fieldset>
+        <legend style="color: navy;">Personal Information</legend>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Name", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxtApplicantName", null, new { @class = "form-control", placeholder = "Please enter Applicant Name" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Profession", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxProfession", null, new { @class = "form-control", placeholder = "Please enter your profession" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend style="color: navy;">Contact Information</legend>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Address", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxAddress", null, new { @class = "form-control", placeholder = "Please enter address" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Email", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxEmail", null, new { @class = "form-control", placeholder = "Please enter email" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Phone", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxPhone", null, new { @class = "form-control", placeholder = "Please enter Phone" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <legend style="color: navy;">Educational Information</legend>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group row">
+                    @Html.Label("Degree", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxDegree", null, new { @class = "form-control", placeholder = "Please enter Degree" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group row">
+                    @Html.Label("Start Date ", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxStartDate", null, new { @class = "form-control", placeholder = "Please enter Start Date" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group row">
+                    @Html.Label("End Date ", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxEndDate", null, new { @class = "form-control", placeholder = "Please enter End Date" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group row">
+                    @Html.Label("Institute", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxInstitute", null, new { @class = "form-control", placeholder = "Please enter GPA / % " })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group row">
+                    @Html.Label("GPA/ % ", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxGPA_Percentage", null, new { @class = "form-control", placeholder = "Please enter GPA / % " })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-0">
+                <span class="divspace"></span>
+                <a id="EducationButtonPlus" class="btn btn-primary btn-sm form-control btnjv"><i class="fa fa-save"></i></a>
+            </div>
+
+
+
+        </div>
+        <div class="bootstrap-admin-panel-content form-group">
+            <table class="table table-striped table-bordered order-column stripe table-sm table-hover" style="width: 100%" id="EducationDetailTable">
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+        <legend style="color: navy;">Employment Information</legend>
+
+        <div class="row">
+
+
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Last Jobs", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxLastJob", null, new { @class = "form-control", placeholder = "Please enter Last Job Here!" })
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Position", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxJobPosition", null, new { @class = "form-control", placeholder = "Please enter Your Position Here!" })
+                    </div>
+                </div>
+            </div>*@
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Job Started On", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxJobStartedOn", null, new { @class = "form-control datetimepicker", placeholder = "Please enter Joining Date Here!" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Job Ended On", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxJobEndedOn", null, new { @class = "form-control datetimepicker", placeholder = "Please enter Ending Date Here!" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Employer Name", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxLastEmployer", null, new { @class = "form-control", placeholder = "Please enter Employer Name Here!" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Other Jobs", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxOtherJobs", null, new { @class = "form-control", placeholder = "Please enter Other Jobs Here!" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Other Skills ", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.TextBox("TextBoxOtherSkills", null, new { @class = "form-control", placeholder = "Please enter Other Skills Here!" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Upload CV ", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-8">
+                        <input type="file" class="form-control" id="ApplicantCVFile" name="ApplicantCVFile" accept="application/pdf" required>
+                    </div>
+                </div>
+            </div>
+
+
+
+    </fieldset>
+
+    <input type="text" id="HiddenFieldAdverstismentCode" value="@ViewBag.AdvertismentCode" hidden />
+    <div class="m-t-20 text-center btn btn-primary">
+        <i class="fa fa-save btn"></i><span>
+            <input type="button" class="btn btn-primary" id="SubmitDown" value="Save Applicant" />
+        </span>
+    </div>
+
+}
+<script src="~/Areas/HiringAndRecruitmentModule/JsScript/CreateResumeForJobTitle.js"></script>

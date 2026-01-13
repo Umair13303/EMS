@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Announce Session";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Company</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Academic Session</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>@ViewBag.Title</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:1%;width:100%">
+        <div class="card-body">
+
+            <form>
+                @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+                {
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-8">
+                            <div class="form-group">
+                                @Html.Label("Session ( For Edit )", new { @class = "col-form-label", @for = "DropDownListSession" })
+                                @Html.DropDownList("DropDownListSession", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSession" })
+                                <input type="button" class="btn btn-info" id="ButtonSubmitGetInfoForEdit" value="Load Information" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-8">
+                        <div class="form-group">
+                            @Html.Label("Campus", new { @class = "col-form-label", @for = "DropDownListCampus" })
+                            @Html.DropDownList("DropDownListCampus", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampus" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-0">
+
+                    <div class="col-sm-12 col-md-3">
+                        <div class="form-group">
+                            @Html.Label("Enrollment Type", new { @class = "col-form-label", @for = "DropDownListEnrollmentType" })
+                            @Html.DropDownList("DropDownListEnrollmentType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListEnrollmentType" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-8">
+                        <div class="form-group">
+                            @Html.Label("Description", new { @class = "col-form-label", @for = "TextBoxDescription" })
+                            @Html.TextBox("TextBoxDescription", null, new { @class = "form-control ", placeholder = "Please Enter Session Description Here!", @id = "TextBoxDescription" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Period", new { @class = "col-form-label", @for = "TextBoxSessionPeriod" })
+                            <div class="input-group mb-3">
+                                @Html.TextBox("TextBoxSessionStartDate", null, new { @class = "form-control DatePickerSimple_Range", placeholder = "Please Enter Start Date Here!", @id = "TextBoxSessionStartDate" })
+                                <span class="input-group-text">To</span>
+                                @Html.TextBox("TextBoxSessionEndDate", null, new { @class = "form-control DatePickerSimple_Range", placeholder = "Please Enter End Date Here!", @id = "TextBoxSessionEndDate" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Classes", new { @class = "col-form-label", @for = "DropDownListClass" })
+                            @Html.DropDownList("DropDownListClass", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListClass" })
+                        </div>
+                    </div>
+                </div>
+                <div class="bootstrap-admin-panel-content">
+                    <table class="table table-bordered table-sm order-column stripe table-hover" style="width: 100%" id="MainTableSessionDetail">
+                        <tbody id="MainTableSessionDetail">
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+        @Html.TextBox("HiddenFieldSessionGuID", null, new { @class = "form-control", Value = ViewBag.CampusGuID, hidden = true, @id = "HiddenFieldSessionGuID" })
+        @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
+
+        <div class="card-footer">
+            <div class="col-sm-12 form-group">
+                <div class="card-heading" id="DivButtonSubmitDown" style="display:none">
+                    <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Sumbit" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+                <div class="card-heading" id="DivButtonUpdateDown" style="display:none">
+                    <input type="button" class="btn btn-warning" id="ButtonUpdateDown" value="Update" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+}
+<script src="~/Areas/ACompany/Script/MSessionUI_Script/CreateUpdateAppSession.js"></script>

@@ -1,0 +1,192 @@
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between align-items-center">
+                    <h4>@ViewBag.Title</h4>
+
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Setup</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Fee</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>@ViewBag.Title</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:1%;width:100%">
+        <div class="card-body">
+            <form>
+                @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+                {
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-8">
+                            <div class="form-group">
+                                @Html.Label("Fee Type ( For Edit )", new { @class = "col-form-label", @for = "DropDownListFeeType" })
+                                @Html.DropDownList("DropDownListFeeType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListFeeType" })
+                                <button type="button" class="btn btn-info" id="ButtonSubmitGetInfoForEdit">
+                                    <i class="fa fa-sync-alt"></i> Load Information
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Catagory", new { @class = "col-form-label", @for = "DropDownListFeeCatagory" })
+                            @Html.DropDownList("DropDownListFeeCatagory", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListFeeCatagory" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Charging Method", new { @class = "col-form-label", @for = "DropDownListChargingMethod" })
+                            @Html.DropDownList("DropDownListChargingMethod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListChargingMethod" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Description", new { @class = "col-form-label", @for = "TextBoxDescription" })
+                            @Html.TextBox("TextBoxDescription", null, new { @class = "form-control", placeholder = "Please Enter Fee Name Here!", @id = "TextBoxDescription" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-3" id="DivCheckBoxIsOnAdmission" style="display:none">
+                        <div class="form-group">
+                            @Html.Label("On Admission", new { @class = "col-form-label", @for = "CheckBoxIsOnAdmission" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="n-chk align-self-end">
+                                            <label class="new-control new-checkbox checkbox-danger" style="height: 21px; margin-bottom: 0; margin-right: 0">
+                                                @Html.CheckBox("CheckBoxIsOnAdmission", false, new { @class = "new-control-input CheckBox", @id = "CheckBoxIsOnAdmission" })
+                                                <span class="new-control-indicator"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="form-group">
+                            @Html.Label("Is Security", new { @class = "col-form-label", @for = "CheckBoxIsSecurity" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="n-chk align-self-end">
+                                            <label class="new-control new-checkbox checkbox-danger" style="height: 21px; margin-bottom: 0; margin-right: 0">
+                                                @Html.CheckBox("CheckBoxIsSecurity", false, new { @class = "new-control-input CheckBox", @id = "CheckBoxIsSecurity" })
+                                                <span class="new-control-indicator"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="form-group">
+                            @Html.Label("Is Refundable", new { @class = "col-form-label", @for = "CheckBoxIsRefundable" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="n-chk align-self-end">
+                                            <label class="new-control new-checkbox checkbox-danger" style="height: 21px; margin-bottom: 0; margin-right: 0">
+                                                @Html.CheckBox("CheckBoxIsRefundable", false, new { @class = "new-control-input CheckBox", @id = "CheckBoxIsRefundable" })
+                                                <span class="new-control-indicator"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="form-group">
+                            @Html.Label("Is Discount", new { @class = "col-form-label", @for = "CheckBoxIsDiscount" })
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="n-chk align-self-end">
+                                            <label class="new-control new-checkbox checkbox-danger" style="height: 21px; margin-bottom: 0; margin-right: 0">
+                                                @Html.CheckBox("CheckBoxIsDiscount", false, new { @class = "new-control-input CheckBox", @id = "CheckBoxIsDiscount" })
+                                                <span class="new-control-indicator"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row mb-0" id="DivCOAOtherFeeType" style="display:none">
+                    <div class="col-sm-12 col-md-6" id="DivDropDownListRevenueAccount" style="display:block">
+                        <div class="form-group">
+                            @Html.Label("Revenue A/c", new { @class = "col-form-label", @for = "DropDownListRevenueAccount" })
+                            @Html.DropDownList("DropDownListRevenueAccount", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListRevenueAccount" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6" id="DivDropDownListAssetAccount" style="display: block">
+                        <div class="form-group">
+                            @Html.Label("Asset A/c", new { @class = "col-form-label", @for = "DropDownListAssetAccount" })
+                            @Html.DropDownList("DropDownListAssetAccount", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListAssetAccount" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6" id="DivDropDownListLiabilityAccount" style="display:none">
+                        <div class="form-group">
+                            @Html.Label("Liability A/c", new { @class = "col-form-label", @for = "DropDownListLiabilityAccount" })
+                            @Html.DropDownList("DropDownListLiabilityAccount", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListLiabilityAccount" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6" id="DivDropDownListCostOfSaleAccount" style="display:none">
+                        <div class="form-group">
+                            @Html.Label("Cost Of Sale A/c", new { @class = "col-form-label", @for = "DropDownListCostOfSaleAccount" })
+                            @Html.DropDownList("DropDownListCostOfSaleAccount", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCostOfSaleAccount" })
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        @Html.TextBox("HiddenFieldFeeTypeGuID", null, new { @class = "form-control", Value = ViewBag.FeeTypeGuID, hidden = true, @id = "HiddenFieldFeeTypeGuID" })
+        @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
+
+        <div class="card-footer">
+            <div class="col-sm-12 form-group">
+                <div class="card-heading" id="DivButtonSubmitDown" style="display:none">
+                    <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Sumbit" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+                <div class="card-heading" id="DivButtonUpdateDown" style="display:none">
+                    <input type="button" class="btn btn-warning" id="ButtonUpdateDown" value="Update" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+}
+
+<script>
+</script>
+<script src="~/SiteScripts/AAccounts/MFeeUI/CreateNewAccFeeType.js"></script>

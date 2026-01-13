@@ -1,0 +1,1646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FASModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="fn_CodeSplitByCommaAsINT_Result">
+    <Property Name="sID" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="fn_CodeSplitByCommaAsUniqueIdentifier_Result">
+    <Property Name="sID" Type="Guid" />
+  </ComplexType>
+  <ComplexType Name="fn_GetCommaSepratedValuesInList_Result">
+    <Property Name="sID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityType Name="AASM_AdmissionSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AcademicYearId" Type="Int32" />
+    <Property Name="AdmissionStartDate" Type="DateTime" Precision="3" />
+    <Property Name="AdmissionEndDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AASM_AdmissionSessionClass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="AdmissionSessionId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="IsEnteryTestRequired" Type="Boolean" />
+    <Property Name="IsInterviewRequired" Type="Boolean" />
+    <Property Name="SessionStartDate" Type="DateTime" Precision="0" />
+    <Property Name="SessionEndDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ACCM_ClassCurriculum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ACCM_ClassCurriculumSubject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="ClassCurriculumId" Type="Int32" />
+    <Property Name="SemesterId" Type="Int32" />
+    <Property Name="SubjectId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ACFSM_ClassFeeStructure">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChallanMethodId" Type="Int32" />
+    <Property Name="WHTaxPolicyId" Type="Int32" />
+    <Property Name="AdmissionSessionId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ACFSM_ClassFeeStructureFeeType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="ClassFeeStructureId" Type="Int32" />
+    <Property Name="FeeTypeId" Type="Int32" />
+    <Property Name="RevenueAccountId" Type="Int32" />
+    <Property Name="AssetAccountId" Type="Int32" />
+    <Property Name="LiabilityAccountId" Type="Int32" />
+    <Property Name="CostOfSaleAccountId" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ACM_Class">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudyLevelId" Type="Int32" />
+    <Property Name="StudyGroupId" Type="Int32" />
+    <Property Name="StudySchemeId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ACOAM_ChartOfAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccountTypeId" Type="Int32" />
+    <Property Name="AccountCategoryId" Type="Int32" />
+    <Property Name="FinancialStatementId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ADTM_DiscountType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CostOfSaleAccountId" Type="Int32" />
+    <Property Name="IsByPercentage" Type="Boolean" />
+    <Property Name="DiscountPercentage" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="IsByAmount" Type="Boolean" />
+    <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AFTM_FeeType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FeeCategoryId" Type="Int32" />
+    <Property Name="ChargingMethodId" Type="Int32" />
+    <Property Name="IsOnAdmission" Type="Boolean" />
+    <Property Name="IsSecurity" Type="Boolean" />
+    <Property Name="IsRefundable" Type="Boolean" />
+    <Property Name="IsDiscount" Type="Boolean" />
+    <Property Name="RevenueAccountId" Type="Int32" />
+    <Property Name="AssetAccountId" Type="Int32" />
+    <Property Name="LiabilityAccountId" Type="Int32" />
+    <Property Name="CostOfSaleAccountId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AQM_Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="SubjectId" Type="Int32" />
+    <Property Name="Chapter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DifficultyLevelId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionTypeId" Type="Int32" />
+    <Property Name="Options" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CorrectAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ASM_Subject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BM_Branch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusTypeId" Type="Int32" />
+    <Property Name="OrganizationTypeId" Type="Int32" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NTNNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CM_Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="AddressLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyWebsite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UploadLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RSM_RightSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RightId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="URLTypeId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SM_Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusId" Type="Int32" />
+    <Property Name="AdmissionSessionId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="AdmissionCategoryId" Type="Int32" />
+    <Property Name="RegistrationNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentCNIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="ReligionId" Type="Int32" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="DomicileDistrict" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FatherCNIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OccupationId" Type="Int32" />
+    <Property Name="IsFatherAlive" Type="Boolean" />
+    <Property Name="GuardianName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GuardianCNIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentMobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ParentMobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LandLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencyMobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SSR_StudentSemesterRegistration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusId" Type="Int32" />
+    <Property Name="AdmissionSessionId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UM_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="AllowedCampusIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsLogIn" Type="Boolean" />
+    <Property Name="IsDeveloper" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="URM_UserRight">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuID" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="RightId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DocType" Type="Int32" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AcademicYear">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AccountCatagory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccountTypeId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AdmissionCatagory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BillingMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CampusType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ChallanMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChallanNo" Type="Int32" />
+    <Property Name="MonthsNo" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ChallanType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DB_IF_Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ChargingMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRecurring" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CallingCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DocType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DocumentStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EducationBoard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EnrollmentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ExportClass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Class" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="FeeCatagory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsOtherFee" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="FinancialStatement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MartialStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Occupation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OrganizationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PolicyPeriod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MonthNo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QuestionType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RegistrationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Relationship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Right">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDisplayAllowed" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Menu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RoleIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SubMenu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="Purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="RollCallSystem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Semester">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudySchemeId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StudyGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="StudyLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="StudyScheme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSemesterRequired" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="URLType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="WHTaxPolicy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Percentage" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Section" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SlabAmount" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="FixedCharges" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="IsOnExceedingAmount" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="WorkingShift">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="FASEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AASM_AdmissionSession" EntityType="Self.AASM_AdmissionSession" />
+    <EntitySet Name="AASM_AdmissionSessionClass" EntityType="Self.AASM_AdmissionSessionClass" />
+    <EntitySet Name="ACCM_ClassCurriculum" EntityType="Self.ACCM_ClassCurriculum" />
+    <EntitySet Name="ACCM_ClassCurriculumSubject" EntityType="Self.ACCM_ClassCurriculumSubject" />
+    <EntitySet Name="ACFSM_ClassFeeStructure" EntityType="Self.ACFSM_ClassFeeStructure" />
+    <EntitySet Name="ACFSM_ClassFeeStructureFeeType" EntityType="Self.ACFSM_ClassFeeStructureFeeType" />
+    <EntitySet Name="ACM_Class" EntityType="Self.ACM_Class" />
+    <EntitySet Name="ACOAM_ChartOfAccount" EntityType="Self.ACOAM_ChartOfAccount" />
+    <EntitySet Name="ADTM_DiscountType" EntityType="Self.ADTM_DiscountType" />
+    <EntitySet Name="AFTM_FeeType" EntityType="Self.AFTM_FeeType" />
+    <EntitySet Name="AQM_Question" EntityType="Self.AQM_Question" />
+    <EntitySet Name="ASM_Subject" EntityType="Self.ASM_Subject" />
+    <EntitySet Name="BM_Branch" EntityType="Self.BM_Branch" />
+    <EntitySet Name="CM_Company" EntityType="Self.CM_Company" />
+    <EntitySet Name="RSM_RightSetting" EntityType="Self.RSM_RightSetting" />
+    <EntitySet Name="SM_Student" EntityType="Self.SM_Student" />
+    <EntitySet Name="SSR_StudentSemesterRegistration" EntityType="Self.SSR_StudentSemesterRegistration" />
+    <EntitySet Name="UM_User" EntityType="Self.UM_User" />
+    <EntitySet Name="URM_UserRight" EntityType="Self.URM_UserRight" />
+    <EntitySet Name="AcademicYear" EntityType="Self.AcademicYear" />
+    <EntitySet Name="AccountCatagory" EntityType="Self.AccountCatagory" />
+    <EntitySet Name="AccountType" EntityType="Self.AccountType" />
+    <EntitySet Name="AdmissionCatagory" EntityType="Self.AdmissionCatagory" />
+    <EntitySet Name="BillingMethod" EntityType="Self.BillingMethod" />
+    <EntitySet Name="CampusType" EntityType="Self.CampusType" />
+    <EntitySet Name="ChallanMethod" EntityType="Self.ChallanMethod" />
+    <EntitySet Name="ChallanType" EntityType="Self.ChallanType" />
+    <EntitySet Name="ChargingMethod" EntityType="Self.ChargingMethod" />
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="DocType" EntityType="Self.DocType" />
+    <EntitySet Name="DocumentStatus" EntityType="Self.DocumentStatus" />
+    <EntitySet Name="EducationBoard" EntityType="Self.EducationBoard" />
+    <EntitySet Name="EnrollmentType" EntityType="Self.EnrollmentType" />
+    <EntitySet Name="ExportClass" EntityType="Self.ExportClass" />
+    <EntitySet Name="FeeCatagory" EntityType="Self.FeeCatagory" />
+    <EntitySet Name="FinancialStatement" EntityType="Self.FinancialStatement" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" />
+    <EntitySet Name="MartialStatus" EntityType="Self.MartialStatus" />
+    <EntitySet Name="Occupation" EntityType="Self.Occupation" />
+    <EntitySet Name="OrganizationType" EntityType="Self.OrganizationType" />
+    <EntitySet Name="PolicyPeriod" EntityType="Self.PolicyPeriod" />
+    <EntitySet Name="QuestionType" EntityType="Self.QuestionType" />
+    <EntitySet Name="RegistrationType" EntityType="Self.RegistrationType" />
+    <EntitySet Name="Relationship" EntityType="Self.Relationship" />
+    <EntitySet Name="Religion" EntityType="Self.Religion" />
+    <EntitySet Name="Right" EntityType="Self.Right" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="RollCallSystem" EntityType="Self.RollCallSystem" />
+    <EntitySet Name="Semester" EntityType="Self.Semester" />
+    <EntitySet Name="StudyGroup" EntityType="Self.StudyGroup" />
+    <EntitySet Name="StudyLevel" EntityType="Self.StudyLevel" />
+    <EntitySet Name="StudyScheme" EntityType="Self.StudyScheme" />
+    <EntitySet Name="URLType" EntityType="Self.URLType" />
+    <EntitySet Name="WHTaxPolicy" EntityType="Self.WHTaxPolicy" />
+    <EntitySet Name="WorkingShift" EntityType="Self.WorkingShift" />
+    <FunctionImport Name="fn_CodeSplitByCommaAsINT" IsComposable="true" ReturnType="Collection(FASModel.fn_CodeSplitByCommaAsINT_Result)">
+      <Parameter Name="psCSString" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fn_CodeSplitByCommaAsUniqueIdentifier" IsComposable="true" ReturnType="Collection(FASModel.fn_CodeSplitByCommaAsUniqueIdentifier_Result)">
+      <Parameter Name="psCSString" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fn_GetCommaSepratedValuesInList" IsComposable="true" ReturnType="Collection(FASModel.fn_GetCommaSepratedValuesInList_Result)">
+      <Parameter Name="psCSString" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AASM_AdmissionSession_GetListByParam" ReturnType="Collection(FASModel.AASM_AdmissionSession_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AASM_AdmissionSession_GetListBySearch" ReturnType="Collection(FASModel.AASM_AdmissionSession_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusId" Mode="In" Type="String" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AASM_AdmissionSession_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="AcademicYearId" Mode="In" Type="Int32" />
+      <Parameter Name="AdmissionStartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="AdmissionEndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACCM_ClassCurriculum_GetListByParam" ReturnType="Collection(FASModel.ACCM_ClassCurriculum_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACCM_ClassCurriculum_GetListBySearch" ReturnType="Collection(FASModel.ACCM_ClassCurriculum_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusId" Mode="In" Type="String" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ACCM_ClassCurriculum_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="ClassId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACFSM_ClassFeeStructure_GetListByParam" ReturnType="Collection(FASModel.ACFSM_ClassFeeStructure_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="ClassId" Mode="In" Type="Int32" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACFSM_ClassFeeStructure_GetListBySearch" ReturnType="Collection(FASModel.ACFSM_ClassFeeStructure_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ACFSM_ClassFeeStructure_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="ChallanMethodId" Mode="In" Type="Int32" />
+      <Parameter Name="WHTaxPolicyId" Mode="In" Type="Int32" />
+      <Parameter Name="AdmissionSessionId" Mode="In" Type="Int32" />
+      <Parameter Name="ClassId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACM_Class_GetListByParam" ReturnType="Collection(FASModel.ACM_Class_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="AdmissionSessionId" Mode="In" Type="Int32" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACM_Class_GetListBySearch" ReturnType="Collection(FASModel.ACM_Class_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusId" Mode="In" Type="String" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ACM_Class_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="StudyLevelId" Mode="In" Type="Int32" />
+      <Parameter Name="StudyGroupId" Mode="In" Type="Int32" />
+      <Parameter Name="StudySchemeId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACOAM_ChartOfAccount_GetListByParam" ReturnType="Collection(FASModel.ACOAM_ChartOfAccount_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountTypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACOAM_ChartOfAccount_GetListBySearch" ReturnType="Collection(FASModel.ACOAM_ChartOfAccount_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ACOAM_ChartOfAccount_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="AccountTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountCategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="FinancialStatementId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ADTM_DiscountType_GetListByParam" ReturnType="Collection(FASModel.ADTM_DiscountType_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ADTM_DiscountType_GetListBySearch" ReturnType="Collection(FASModel.ADTM_DiscountType_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ADTM_DiscountType_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="CostOfSaleAccountId" Mode="In" Type="Int32" />
+      <Parameter Name="IsByPercentage" Mode="In" Type="Boolean" />
+      <Parameter Name="DiscountPercentage" Mode="In" Type="Decimal" />
+      <Parameter Name="IsByAmount" Mode="In" Type="Boolean" />
+      <Parameter Name="DiscountAmount" Mode="In" Type="Decimal" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AFTM_FeeType_GetListByParam" ReturnType="Collection(FASModel.AFTM_FeeType_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="FeeCategoryId" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AFTM_FeeType_GetListBySearch" ReturnType="Collection(FASModel.AFTM_FeeType_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AFTM_FeeType_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="FeeCategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="ChargingMethodId" Mode="In" Type="Int32" />
+      <Parameter Name="IsOnAdmission" Mode="In" Type="Boolean" />
+      <Parameter Name="IsSecurity" Mode="In" Type="Boolean" />
+      <Parameter Name="IsRefundable" Mode="In" Type="Boolean" />
+      <Parameter Name="IsDiscount" Mode="In" Type="Boolean" />
+      <Parameter Name="RevenueAccountId" Mode="In" Type="Int32" />
+      <Parameter Name="AssetAccountId" Mode="In" Type="Int32" />
+      <Parameter Name="LiabilityAccountId" Mode="In" Type="Int32" />
+      <Parameter Name="CostOfSaleAccountId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AQM_Question_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="ClassId" Mode="In" Type="Int32" />
+      <Parameter Name="SubjectId" Mode="In" Type="Int32" />
+      <Parameter Name="Chapter" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="QuestionTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Options" Mode="In" Type="String" />
+      <Parameter Name="CorrectAnswer" Mode="In" Type="String" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ASM_Subject_GetListByParam" ReturnType="Collection(FASModel.ASM_Subject_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="ClassId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ASM_Subject_GetListBySearch" ReturnType="Collection(FASModel.ASM_Subject_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ASM_Subject_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="ShortDescription" Mode="In" Type="String" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="BM_Branch_GetListByParam" ReturnType="Collection(FASModel.BM_Branch_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="BM_Branch_GetListBySearch" ReturnType="Collection(FASModel.BM_Branch_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="BM_Branch_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="CampusTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="OrganizationTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="ContactNo" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="NTNNo" Mode="In" Type="String" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CM_Company_GetDetailByParam" ReturnType="Collection(FASModel.CM_Company_GetDetailByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CM_Company_GetListByParam" ReturnType="Collection(FASModel.CM_Company_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CM_Company_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="AddressLine" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="CompanyWebsite" Mode="In" Type="String" />
+      <Parameter Name="UploadLogo" Mode="In" Type="String" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RSM_RightSetting_GetDetailByParam" ReturnType="Collection(FASModel.RSM_RightSetting_GetDetailByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="URLTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="Menu" Mode="In" Type="String" />
+      <Parameter Name="RightId" Mode="In" Type="Int32" />
+      <Parameter Name="RightPath" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RSM_RightSetting_GetListByParam" ReturnType="Collection(FASModel.RSM_RightSetting_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RSM_RightSetting_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="RightId" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="URLTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SM_Student_GetListByParam" ReturnType="Collection(FASModel.SM_Student_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="ClassId" Mode="In" Type="Int32" />
+      <Parameter Name="AdmissionSessionId" Mode="In" Type="Int32" />
+      <Parameter Name="StudentCNIC" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SM_Student_GetListBySearch" ReturnType="Collection(FASModel.SM_Student_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusId" Mode="In" Type="String" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SM_Student_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="So_Far_Best">
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="CampusId" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="ClassId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="NewClassCurriculumId" Mode="InOut" Type="Int32" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UM_User_GetDetailByParam" ReturnType="Collection(FASModel.UM_User_GetDetailByParam_Result)">
+      <Parameter Name="ListCondition" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="IsLogIn" Mode="In" Type="Boolean" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UM_User_GetListByParam" ReturnType="Collection(FASModel.UM_User_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UM_User_GetListBySearch" ReturnType="Collection(FASModel.UM_User_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UM_User_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="IsLogIn" Mode="In" Type="Boolean" />
+      <Parameter Name="IsDeveloper" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="URM_UserRight_GetListByParam" ReturnType="Collection(FASModel.URM_UserRight_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="SessionCompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="SessionBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="SearchParameter" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="URM_UserRight_GetListBySearch" ReturnType="Collection(FASModel.URM_UserRight_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="Guid" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="URM_UserRight_Upsert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="RightId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="Response" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="AASM_AdmissionSession_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AASM_AdmissionSession_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="DateTime" Name="AdmissionStartDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="AdmissionEndDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="AcademicYear" Nullable="true" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+    <Property Type="String" Name="Campus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ACCM_ClassCurriculum_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ACCM_ClassCurriculum_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="Class" Nullable="true" />
+    <Property Type="String" Name="Campus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ACFSM_ClassFeeStructure_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ACFSM_ClassFeeStructure_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="ChallanMethod" Nullable="true" />
+    <Property Type="String" Name="WHTaxPolicy" Nullable="true" />
+    <Property Type="String" Name="AdmissionSession" Nullable="true" />
+    <Property Type="String" Name="Class" Nullable="true" />
+    <Property Type="String" Name="Campus" Nullable="true" />
+    <Property Type="Decimal" Name="NetFee" Nullable="true" Precision="38" Scale="4" />
+    <Property Type="Decimal" Name="WithHoldingTax" Nullable="true" Precision="20" Scale="4" />
+    <Property Type="Decimal" Name="GrossFee" Nullable="true" Precision="38" Scale="4" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ACM_Class_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="Int32" Name="StudySchemeId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ACM_Class_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="StudyLevel" Nullable="true" />
+    <Property Type="String" Name="StudyGroup" Nullable="true" />
+    <Property Type="String" Name="StudyScheme" Nullable="true" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+    <Property Type="String" Name="Campus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ACOAM_ChartOfAccount_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ACOAM_ChartOfAccount_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="AccountType" Nullable="true" />
+    <Property Type="String" Name="AccountCatagory" Nullable="true" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ADTM_DiscountType_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ADTM_DiscountType_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="CostOfSaleAccount" Nullable="true" />
+    <Property Type="Boolean" Name="IsByPercentage" Nullable="true" />
+    <Property Type="Decimal" Name="DiscountPercentage" Nullable="true" Precision="18" Scale="4" />
+    <Property Type="Boolean" Name="IsByAmount" Nullable="true" />
+    <Property Type="Decimal" Name="DiscountAmount" Nullable="true" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AFTM_FeeType_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AFTM_FeeType_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="Boolean" Name="IsOnAdmission" Nullable="true" />
+    <Property Type="Boolean" Name="IsDiscount" Nullable="true" />
+    <Property Type="Boolean" Name="IsRefundable" Nullable="true" />
+    <Property Type="Boolean" Name="IsSecurity" Nullable="true" />
+    <Property Type="String" Name="FeeCatagory" Nullable="true" />
+    <Property Type="String" Name="ChargingMethod" Nullable="false" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ASM_Subject_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ASM_Subject_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="ShortDescription" Nullable="true" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="BM_Branch_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="ExtraClass" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="BM_Branch_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="CampusType" Nullable="true" />
+    <Property Type="String" Name="OrganizationType" Nullable="true" />
+    <Property Type="String" Name="Country" Nullable="true" />
+    <Property Type="String" Name="City" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="String" Name="ContactNo" Nullable="true" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" />
+    <Property Type="String" Name="NTNNo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CM_Company_GetDetailByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="CompanyName" Nullable="true" />
+    <Property Type="Int32" Name="CityId" Nullable="true" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="String" Name="AddressLine" Nullable="true" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" />
+    <Property Type="String" Name="CompanyWebsite" Nullable="true" />
+    <Property Type="String" Name="UploadLogo" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="String" Name="CityName" Nullable="true" />
+    <Property Type="String" Name="CountryName" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CM_Company_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RSM_RightSetting_GetDetailByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FormName" Nullable="true" />
+    <Property Type="String" Name="DisplayName" Nullable="true" />
+    <Property Type="Boolean" Name="IsDisplayAllowed" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="String" Name="Menu" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="DB_OperationType" Nullable="true" />
+    <Property Type="Int32" Name="URLTypeId" Nullable="true" />
+    <Property Type="String" Name="SubMenu" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RSM_RightSetting_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="CompanyName" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SM_Student_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SM_Student_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="RegistrationNumber" Nullable="true" />
+    <Property Type="String" Name="StudentName" Nullable="true" />
+    <Property Type="String" Name="StudentCNIC" Nullable="true" />
+    <Property Type="String" Name="FatherName" Nullable="true" />
+    <Property Type="String" Name="FatherCNIC" Nullable="true" />
+    <Property Type="String" Name="StudentMobile" Nullable="true" />
+    <Property Type="String" Name="StudentEmail" Nullable="true" />
+    <Property Type="String" Name="CampusId" Nullable="true" />
+    <Property Type="String" Name="AdmissionSession" Nullable="true" />
+    <Property Type="String" Name="Class" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="UM_User_GetDetailByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="Boolean" Name="IsLogIn" Nullable="true" />
+    <Property Type="String" Name="AllowedCampusIds" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeveloper" Nullable="true" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+    <Property Type="Int32" Name="BranchId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="UM_User_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="UM_User_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="AllowedCampusIds" Nullable="true" />
+    <Property Type="Boolean" Name="IsLogIn" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeveloper" Nullable="true" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+    <Property Type="String" Name="Branch" Nullable="false" />
+    <Property Type="String" Name="Company" Nullable="true" />
+    <Property Type="String" Name="Remarks" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="URM_UserRight_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="URM_UserRight_GetListBySearch_Result">
+    <Property Type="String" Name="FormName" Nullable="true" />
+    <Property Type="String" Name="DisplayName" Nullable="true" />
+    <Property Type="Int32" Name="DocumentStatus" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

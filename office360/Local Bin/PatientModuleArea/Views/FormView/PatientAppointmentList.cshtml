@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Patient List All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form id="ChooseListToPopulate">
+    <div class="form-group row">
+        <label for="DropDownListType" class="col-sm-2 col-form-label">List To Populate</label>
+        <div class="col-sm-4">
+            <select id="DropDownListType" class="form-control select2" data-dropdown-css-class="select2-purple" style="width: 100%">
+                <option value="-1">Choose List Type</option>
+                <option value="1">List of All Patient (Open)</option>
+                <option value="2">List of Appointment (Search String Requried)</option>
+            </select>
+        </div>
+    </div>
+</form>
+
+<div id="DivSearchCriteria" style="display:none">
+    <h4 style="margin-bottom:25px">Choose The Search Criteria !</h4>
+
+    <div class="form-group row">
+        <label for="TextBoxStartDateForFilterPatients" class="col-sm-2 col-form-label">Start Date</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control datemask datetimepicker input-sm" id="StartDateForFilterPatients" placeholder="Please Enter Date of Appointment Here!">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="TextBoxStartDateForFilterPatients" class="col-sm-2 col-form-label">End Date</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control datemask datetimepicker input-sm" id="EndDateForFilterPatients" placeholder="Please Enter Date of Appointment Here!">
+        </div>
+    </div>
+</div>
+<div id="DivPopulatePatientList" style="display: block">
+    <div class="m-t-20 text-center">
+        <button class="btn btn-outline-primary submit-btn" style="border-radius:25px" id="ButtonPopulatePatientList">Populate Patients</button>
+    </div>
+    <div id="DivPatientList">
+        <div class="bootstrap-admin-panel-content form-group">
+            <table class="table table-striped table-bordered order-column stripe table-sm table-hover" style="width: 100%" id="PatientListTable">
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="DivPatientAppointmentList" style="display:block">
+    <div class="m-t-20 text-center">
+        <button class="btn btn-outline-primary submit-btn" style="border-radius:25px" id="ButtonPopulateList">Populate Appointment List</button>
+    </div>
+
+
+    <div class="bootstrap-admin-panel-content form-group">
+        <table class="table table-striped table-bordered order-column stripe table-sm table-hover" style="width: 100%" id="PatientAppointmentListTable">
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="~/Areas/PatientModuleArea/JsScripts/Patients/PatientAppointmentList.js"></script>

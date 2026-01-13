@@ -1,0 +1,247 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Petty Cash Register</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="~/_Theme2/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <link href="~/_Theme2/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="~/_Theme2/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
+    <link href="~/_Theme2/plugins/flatpickr/flatpickr.css" rel="stylesheet" type="text/css">
+    <link href="~/_Theme2/plugins/noUiSlider/nouislider.min.css" rel="stylesheet" type="text/css">
+    <link href="~/_Theme2/plugins/flatpickr/custom-flatpickr.css" rel="stylesheet" type="text/css">
+    <link href="~/_Theme2/plugins/noUiSlider/custom-nouiSlider.css" rel="stylesheet" type="text/css">
+    <link href="~/_Theme2/plugins/bootstrap-range-Slider/bootstrap-slider.css" rel="stylesheet" type="text/css">
+    <link href="~/_Theme2/assets/css/components/custom-modal.css" rel="stylesheet" type="text/css" />
+    <link href="~/_Theme2/plugins/animate/animate.css" rel="stylesheet" type="text/css" />
+    <link href="~/_Theme2/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Library/JS/SweetAlert2.js"></script>
+    <script src="~/Library/JS/FontAwsome.js"></script>
+
+    <link rel="stylesheet" href="~/_Theme2/plugins/font-icons/fontawesome/css/regular.css">
+    <link rel="stylesheet" href="~/_Theme2/plugins/font-icons/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="~/_Theme2/plugins/table/datatable/datatables.css">
+    <link rel="stylesheet" type="text/css" href="~/_Theme2/plugins/table/datatable/custom_dt_html5.css">
+    <link rel="stylesheet" type="text/css" href="~/_Theme2/plugins/table/datatable/dt-global_style.css">
+    <link rel="stylesheet" type="text/css" href="~/_Theme2/assets/css/forms/theme-checkbox-radio.css">
+    <link rel="stylesheet" type="text/css" href="~/_Theme2/plugins/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/_Theme2/plugins/loaders/custom-loader.css">
+    <link rel="stylesheet" type="text/css" href="~/SiteAssets/Uttility/Uttility.css">
+    <link href="~/_Theme2/assets/css/forms/switches.css" rel="stylesheet" />
+
+    <style>
+        /* Force remove sidebar space */
+        .sidebar-wrapper {
+            display: none !important;
+        }
+
+        .main-container {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        /* Content alignment fix - KILL THE 255px LEFT MARGIN */
+        #content {
+            margin-left: 0 !important;
+            width: 100% !important;
+            margin-top: 70px !important; /* Prevents overlap with fixed navbar */
+            padding: 0 20px !important;
+        }
+
+        /* Modern Navbar Styling */
+        .header-container {
+            background: #ffffff !important;
+            border-bottom: 1px solid #e0e6ed;
+            box-shadow: 0 4px 15px 0 rgba(0,0,0,0.05);
+            padding: 8px 25px;
+        }
+
+        .header.navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        /* Align Navbar buttons with Body content */
+        .nav-left-btns {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-right-items {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Modern Search Input */
+        .topbar-search {
+            width: 300px;
+            border-radius: 30px;
+            background: #f1f2f3;
+            border: 1px solid #d3d3d3;
+            padding: 8px 20px;
+            transition: all 0.3s;
+        }
+
+            .topbar-search:focus {
+                width: 350px;
+                background: #fff;
+                box-shadow: 0 0 5px rgba(67, 97, 238, 0.3);
+            }
+
+        /* Unified Card style for the body */
+        .layout-px-spacing {
+            padding: 0 !important;
+        }
+
+        .widget-content-area {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        /* FOOTER DESIGN */
+        .footer-wrapper {
+            padding: 15px 25px;
+            background: #fff;
+            border-top: 1px solid #e0e6ed;
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #888ea8;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+            .footer-section .brand {
+                color: #4361ee;
+                font-weight: 700;
+            }
+    </style>
+</head>
+<body class="alt-menu">
+    @{ var navigationData = Session["Menu"] as List<office360.Models.General.UserRightMenu.MenuViewModel>; }
+
+    <div class="header-container fixed-top">
+        <header class="header navbar">
+
+            <div class="nav-left-btns">
+                <form method="post" action="/Account/PCRIncomeManagment_UI/CreateUpdate_PCRIncome_UI" class="m-0">
+                    <input type="hidden" name="OperationType" value="UPSERT" />
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Add Petty Cash</button>
+                </form>
+                <form method="post" action="/Account/PCRExpenseManagment_UI/CreateUpdate_PCRExpense_UI" class="m-0">
+                    <input type="hidden" name="OperationType" value="UPSERT" />
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Add Expense</button>
+                </form>
+                <form method="post" action="/Account/PCRReportManagment_UI/View_PCRLedger_UI" class="m-0">
+                    <input type="hidden" name="OperationType" value="VIEW" />
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">View Ledger</button>
+                </form>
+                <form method="post" action="/Account/PCRReportManagment_UI/View_PCRCategorySummary_UI" class="m-0">
+                    <input type="hidden" name="OperationType" value="VIEW" />
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">View Summary</button>
+                </form>
+
+            </div>
+
+            <div class="d-none d-md-block">
+                <h4 class="font-weight-bold mb-0" style="color: #3b3f5c;">@ViewBag.Title</h4>
+            </div>
+
+            <div class="nav-right-items">
+                <input type="text" class="topbar-search" placeholder="Search transactions..." />
+
+                <div class="dropdown user-profile-dropdown">
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="userProfileDropdown" data-toggle="dropdown">
+                        <img src="~/_Theme2/assets/img/profile-16.jpg" class="rounded-circle border" width="38" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right position-absolute">
+                        <a class="dropdown-item" href="/Account/Logout"><i class="far fa-sign-out-alt mr-2"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </div>
+    <div class="main-container" id="container">
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                    <div class="col-xl-12 col-lg-12 col-sm-12">
+                        <div id="loading-container" style="display:none">
+                            <div class="loader dual-loader mx-auto"></div>
+                        </div>
+
+                        @RenderBody()
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-wrapper">
+        <div class="footer-section">
+            <p>© <span id="currentYear"></span> <span class="brand">Medi Cubes</span>. All rights reserved.</p>
+            <p>Powered By <span class="brand">Medi Cubes</span></p>
+        </div>
+    </div>
+
+    <script src="~/_Theme2/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="~/_Theme2/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/_Theme2/bootstrap/js/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/_Theme2/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+
+    <script src="~/_Theme2/plugins/highlight/highlight.pack.js"></script>
+    <script src="~/_Theme2/assets/js/custom.js"></script>
+    <script src="~/_Theme2/plugins/table/datatable/datatables.js"></script>
+    <script src="~/_Theme2/plugins/table/datatable/button-ext/dataTables.buttons.min.js"></script>
+    <script src="~/_Theme2/plugins/table/datatable/button-ext/jszip.min.js"></script>
+    <script src="~/_Theme2/plugins/table/datatable/button-ext/buttons.html5.min.js"></script>
+    <script src="~/_Theme2/plugins/table/datatable/button-ext/buttons.print.min.js"></script>
+    <script src="~/_Theme2/plugins/flatpickr/flatpickr.js"></script>
+    <script src="~/_Theme2/plugins/bootstrap-range-Slider/bootstrap-rangeSlider.js"></script>
+    <script src="~/_Theme2/plugins/input-mask/jquery.inputmask.bundle.min.js"></script>
+    <script src="~/_Theme2/plugins/select2/select2.min.js"></script>
+    <script src="~/_Theme2/plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="~/_Theme2/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Library/JS/dataTables.rowGroup.min.js"></script>
+
+    <script src="~/Common/CommonScripts/ServerEnd.js"></script>
+    <script src="~/Common/CommonScripts/JSClass.js"></script>
+    <script src="~/Common/CommonScripts/CSSFormat.js"></script>
+    <script src="~/Common/CommonScripts/DBCondition.js"></script>
+    <script src="~/Common/CommonScripts/Enum.js"></script>
+    <script src="~/SiteAssets/Uttility/JqueryDateFormat.js"></script>
+    <script src="~/Common/CommonScripts/Uttility.js"></script>
+    <script src="~/Common/CommonScripts/HTMLAttribute.js"></script>
+    <script src="~/Common/CommonScripts/DataTableUI.js"></script>
+
+    <script type="text/javascript">
+        var CompanyId = '@office360.Models.General.Session_Manager.CompanyId';
+        var RoleId = '@office360.Models.General.Session_Manager.RoleId';
+        var BranchId = '@office360.Models.General.Session_Manager.BranchId';
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Company</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Branches</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>Branch List(All)</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:1%;width:100%">
+        <div class="card-body">
+            <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Search Parameter</h3>
+            <div class="row mb-0">
+                <div class="col-sm-12 col-md-5">
+                    <div class="form-group">
+                        @Html.Label("Search By", new { @class = "col-form-label", @for = "DropDownListSearchBy" })
+                        @Html.DropDownList("DropDownListSearchBy", new List<SelectListItem>
+                                                                    {
+                                                                        new SelectListItem { Value = "0", Text = "Select An Option" },
+                                                                        new SelectListItem { Value = "1", Text = "Get All Branches" },
+                                                                        new SelectListItem { Value = "2", Text = "Branch Code" },
+                                                                        new SelectListItem { Value = "3", Text = "Branch Name" },
+                                                                    },
+                                                                    new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSearchBy" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-5">
+                    <div class="form-group">
+                        @Html.Label("Input", new { @class = "col-form-label", @for = "TextBoxQueryString" })
+                        <div class="input-group">
+                            @Html.TextBox("TextBoxQueryString", null, new { @class = "form-control", placeholder = "Please Enter Value Here!", @id = "TextBoxQueryString" })
+                            <div id="ButtonSearch" class="input-group-append"><span class="input-group-text"><i class="fa fa-search"></i></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Additional Setting</h5>
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="form-group">
+                        @Html.Label("Group By", new { @class = "col-form-label", @for = "DropDownListGroupBy" })
+                        @Html.DropDownList("DropDownListGroupBy", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListGroupBy" })
+                    </div>
+                </div>
+            </div>
+            <div class="bootstrap-admin-panel-content">
+                <table class="table table-bordered table-sm order-column stripe table-hover" style="width: 100%" id="MainTableGeneralBranch">
+                    <tbody id="TableBodyMainTableGeneralBranch">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var CompanyId = @office360.Models.General.Session_Manager.CompanyId.ToString();
+        var RoleId = @office360.Models.General.Session_Manager.RoleId.ToString();
+    </script>
+}
+
+<script src="~/SiteScripts/ACompany/MBranchUI/GeneralBranchList.js"></script>

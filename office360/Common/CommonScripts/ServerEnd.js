@@ -1,0 +1,1 @@
+﻿var BasePath = "https://localhost:44368";

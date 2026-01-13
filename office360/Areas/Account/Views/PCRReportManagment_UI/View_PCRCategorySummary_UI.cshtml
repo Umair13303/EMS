@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Common/CommonScripts/AngularService/GlobalServices.js"></script>
+<script src="~/Areas/Account/Scripts/PCRReportManagment_UI_Script/View_PCRCategorySummary_UI.js"></script>
+<div class="statbox widget box box-shadow">
+    <div class="widget-header">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                <h4>@ViewBag.Title</h4>
+            </div>
+        </div>
+        <nav class="breadcrumb-one" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Accounts</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Petty Cash Register</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Summary Report</span></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div ng-app="View_PCRSummary_UI" ng-controller="View_PCRSummary_UIController" class="widget-content widget-content-area" style="margin-top:5px">
+
+    <div class="row mb-3">
+        <div class="col-md-3" style="position: relative; z-index: 1050;">
+            <label>Start Month</label>
+            <input type="text" name="StartDate" id="TextBoxStartDate" class="form-control" ng-model="DataTableSetting.Filter.StartDate" date-picker-simple required>
+        </div>
+        <div class="col-md-3">
+            <label>End Month</label>
+            <input type="text" name="EndDate" id="TextBoxEndDate" class="form-control" ng-model="DataTableSetting.Filter.EndDate" date-picker-simple required>
+        </div>
+        <div class="col-md-2 align-self-end">
+            <button class="btn btn-primary" ng-click="Populate_PCRExpenseSummary_List()">
+                Load Report
+            </button>
+        </div>
+    </div>
+    <div class="table-responsive" ng-if="PCRExpenseSummaryList.length" style="overflow-x: auto; overflow-y: visible !important;">
+        <table class="table-bordered table-hover table">
+            <thead class="thead-light">
+                <tr>
+                    <th class="bg-light font-weight-bold" style="position: sticky; left: 0; z-index: 3; background-color: #f8f9fa;">Expense Category</th>
+                    <th class="sticky-top" style=" z-index: 2" ng-repeat="month in DynamicMonthHeaderList">{{ month }}</th>
+                    <th class="sticky-top">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in PCRExpenseSummaryList">
+                    <td class="bg-light font-weight-bold" style="position: sticky; left: 0; z-index: 1;">{{ row.ExpenseCategory }}</td>
+                    <td ng-repeat="month in DynamicMonthHeaderList">{{ row[month] | number:2 }}</td>
+                    <td class="font-weight-bold">{{ row.SummaryTotal | number:2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-if="!PCRExpenseSummaryList.length" class="text-muted mt-4 text-center">
+        No data available for selected range
+    </div>
+</div>

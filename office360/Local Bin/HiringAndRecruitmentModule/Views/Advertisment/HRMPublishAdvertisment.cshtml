@@ -1,0 +1,77 @@
+﻿@using System.Web.Mvc.Html
+@using office360.Models.General;
+
+@{
+    ViewBag.Title = "Publish Advertisment";
+    Layout = "~/Views/Shared/_LayOut.cshtml";
+}
+
+
+<div id="successAlertContainer"></div>
+
+@using (Html.BeginForm())
+{
+
+    <div class="row">
+        <div class="col-md-12 offset-lg-0">
+            <div class="row">
+                <legend style="color: navy; margin-left: 10px">Advertisment Details</legend>
+
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        @Html.Label("Type", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-7">
+                            @Html.DropDownList("DropDownAdvertismentType", new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Choose Advertisment Type", Value = "-1" },
+                                new SelectListItem { Text = "Equipment Procurment", Value = "Equipment Procurment" },
+                                new SelectListItem { Text = "Hiring of Employee", Value = "Hiring of Employee" ,Selected= true},
+                            }, new { @class = "select2 form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        @Html.Label("Title", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBox("TextBoxTitle", null, new { @class = "form-control", placeholder = "Please Enter Title Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        @Html.Label("Opening Date", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBox("TextBoxStartDate", null, new { @class = "form-control datetimepicker", placeholder = "Please Enter Job Opening Date Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        @Html.Label("Closing Date", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBox("TextBoxEndDate", null, new { @class = "form-control datetimepicker", placeholder = "Please Enter Job Closing Date Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        @Html.Label("Description", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxDescription", null, new { @class = "form-control", placeholder = "Please Enter Description Here!" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="m-t-20 text-center btn btn-primary">
+    <i class="fa fa-save btn"></i><span>
+        <input type="button" class="btn btn-primary" id="SubmitDown" value="Save" />
+    </span>
+</div>
+
+<script src="~/Areas/HiringAndRecruitmentModule/JsScript/HRMPublishAdvertisment.js"></script>

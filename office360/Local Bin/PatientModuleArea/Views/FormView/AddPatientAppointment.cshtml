@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Add Patient Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form>
+    <div class="form-group row">
+        <label for="DropDownAppointmentType" class="col-sm-2 col-form-label"> Appointment Type</label>
+        <div class="col-sm-4  select2-purple">
+            <select class="select2 form-control" id="DropDownAppointmentType" data-placeholder="Choose Appointment Type" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                <option value="">Choose Appointment Type</option>
+                <option value="1">Routine Appointment</option>
+                <option value="2">Emergency Appointment</option>
+                <option value="3">Scheduled Appointment</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="DropDownPatientName" class="col-sm-2 col-form-label">Patient Name</label>
+        <div class="col-sm-6 select2-purple">
+            <select class="select2 form-control" id="DropDownPatientName" data-placeholder="Select a Patient" data-dropdown-css-class="select2-purple" style="width: 100%;">
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="DropDownDepartmentList" class="col-sm-2 col-form-label"> Department</label>
+        <div class="col-sm-4 select2-purple">
+            <select class="select2 form-control" id="DropDownDepartmentList" data-placeholder="Select a Department" data-dropdown-css-class="select2-purple" style="width: 100%;">
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="DropDownDoctorList" class="col-sm-2 col-form-label"> Doctor</label>
+        <div class="col-sm-4  select2-purple">
+            <select class="select2 form-control" id="DropDownDoctorList" data-placeholder="Select a Department" data-dropdown-css-class="select2-purple" style="width: 100%;">
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="TextBoxDateofAppointment" class="col-sm-2 col-form-label">Date of Appointment</label>
+        <div class="col-sm-4">
+            <div class="cal-icon">
+                <input type="text" class="form-control datemask datetimepicker " value="@DateTime.Now" id="TextBoxDateofAppointment" placeholder="Please Enter Date of Appointment Here!">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="TextBoxTimeofAppointment" class="col-sm-2 col-form-label">Time of Appointment</label>
+        <div class="col-sm-3">
+            <div class="time-icon">
+                <input type="text" class="form-control datetimepicker3" id="TextBoxTimeofAppointment" value="">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="TextBoxPatientEmail" class="col-sm-2 col-form-label">Patient Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="TextBoxPatientEmail" placeholder="Please Enter Patient Email Here!">
+        </div>
+    </div><div class="form-group row">
+        <label for="TextBoxPatientPhoneNo" class="col-sm-2 col-form-label">Patient Phone Number</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="TextBoxPatientPhoneNo" placeholder="Please Enter Patient Phone Number Here!">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="TextAreaMessage" class="col-sm-2 col-form-label">Message<span style="font-size:10px">(If Any)</span></label>
+        <div class="col-sm-6">
+            <textarea cols="30" rows="4" class="form-control" id="TextAreaMessage"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="CheckBoxAppointmentStatus" class="col-sm-3 col-form-label">Appointment Status<span style="font-size:10px">(Check If Active)</span></label>
+        <div class="col-sm-4">
+            <input type="checkbox" id="CheckBoxAppointmentStatus">
+        </div>
+    </div>
+</form>
+
+<div class="m-t-20 text-center">
+    <button class="btn btn-primary submit-btn" id="SaveNewAppointment">Save New Appointment</button>
+</div>
+<script src="~/Areas/PatientModuleArea/JsScripts/Patients/AddPatientAppointment.js"></script>

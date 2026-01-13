@@ -1,0 +1,124 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Company</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Class</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>@ViewBag.Title</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="card" style="margin-top:1%;width:100%">
+
+        <div class="card-body" style="margin-top: 20px">
+            <form>
+
+                <div class="row">
+                    <div class="col-12 col-md-9">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Campus", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListCampus" })
+                            <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
+                                    @Html.DropDownList("DropDownListCampus", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampus" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+                {
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-8">
+                            <div class="form-group">
+                                @Html.Label("Class ( For Edit )", new { @class = "col-form-label", @for = "DropDownListClass" })
+                                @Html.DropDownList("DropDownListClass", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListClass" })
+                                <button type="button" class="btn btn-info" id="ButtonSubmitGetInfoForEdit">
+                                    <i class="fa fa-sync-alt"></i> Load Information
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="row">
+
+                    <div class="col-12 col-md-9">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Class Name", new { @class = "col-form-label col-12 col-md-3", @for = "TextBoxDescription" })
+                            <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class=""></i></span>
+                                    @Html.TextBox("TextBoxDescription", null, new { @class = "form-control", placeholder = "Please Enter Class Name Here!", @id = "TextBoxDescription" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Study Level", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListStudyLevel" })
+                            <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
+                                    @Html.DropDownList("DropDownListStudyLevel", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListStudyLevel" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Study Group", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListStudyGroup" })
+                            <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
+                                    @Html.DropDownList("DropDownListStudyGroup", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListStudyGroup" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+        @Html.TextBox("HiddenFieldClassGuID", null, new { @class = "form-control", Value = ViewBag.FeeTypeGuID, hidden = true, @id = "HiddenFieldClassGuID" })
+        @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
+
+        <div class="card-footer">
+            <div class="col-sm-12 form-group">
+                <div class="card-heading" id="DivButtonSubmitDown" style="display:none">
+                    <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Sumbit" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+                <div class="card-heading" id="DivButtonUpdateDown" style="display:none">
+                    <input type="button" class="btn btn-warning" id="ButtonUpdateDown" value="Update" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+<script src="~/SiteScripts/ACompany/MClassUI/CreateNewAppClass.js"></script>

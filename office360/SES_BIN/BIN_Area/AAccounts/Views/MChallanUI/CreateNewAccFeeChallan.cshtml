@@ -1,0 +1,170 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Account</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Challan</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>@ViewBag.Title</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="card" style="margin-top:1%;width:100%">
+        <div class="card-body">
+            @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+            {
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-8">
+                        <div class="form-group">
+                            @Html.Label("Campus ( For Edit )", new { @class = "col-form-label", @for = "DropDownListChallan" })
+                            @Html.DropDownList("DropDownListChallan", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListChallan" })
+                            <button type="button" class="btn btn-info" id="ButtonSubmitGetInfoForEdit">
+                                <i class="fa fa-sync-alt"></i> Load Information
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="row mb-0">
+                <div class="col-sm-12 col-md-8">
+                    <div class="form-group">
+                        @Html.Label("Campus", new { @class = "col-form-label", @for = "DropDownListCampus" })
+                        @Html.DropDownList("DropDownListCampus", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampus" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-0">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        @Html.Label("Session", new { @class = "col-form-label", @for = "DropDownListSession" })
+                        @Html.DropDownList("DropDownListSession", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSession" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        @Html.Label("Session Period", new { @class = "col-form-label", @for = "DropDownListSessionPeriod" })
+                        @Html.DropDownList("DropDownListSessionPeriod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSessionPeriod" })
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-0">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        @Html.Label("Class", new { @class = "col-form-label", @for = "DropDownListClass" })
+                        @Html.DropDownList("DropDownListClass", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListClass" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        @Html.Label("Challan Type", new { @class = "col-form-label", @for = "DropDownListChallanType" })
+                        @Html.DropDownList("DropDownListChallanType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListChallanType" })
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+    <div class="card" style="margin-top:1%;width:100%">
+
+        <div class="card-header">
+            <nav class="nav nav-pills nav-fill">
+                <a class="nav-link tab-pills" href="#">
+                    <i class="fas fa-file-archive" style="margin-right: 8px;"></i>
+                    Fee Challan Detail
+                </a>
+                <a class="nav-link tab-pills" href="#">
+                    <i class="fas fa-user-cog" style="margin-right: 8px;"></i>
+                    Student Detail List
+                </a>
+            </nav>
+        </div>
+
+        <div class="card-body">
+
+            <div class="tab d-none">
+
+
+                <button type="button" class="btn btn-info" id="ButtonSubmitGetFeeChallanDetail">
+                    <i class="fa fa-sync-alt"></i> Load Challan Information
+                </button>
+
+                <div class="bootstrap-admin-panel-content">
+                    <table class="table table-bordered table-sm order-column stripe table-hover" style="width: 100%" id="MainTableFeeStructure">
+                        <tbody id="TableBodyMainTableFeeStructure">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="tab d-none">
+                <button type="button" class="btn btn-info" id="ButtonSubmitGetStudentDetail">
+                    <i class="fa fa-sync-alt"></i> Load Student Information
+                </button>
+
+
+                <div class="bootstrap-admin-panel-content">
+                    <table class="table table-bordered table-sm order-column stripe table-hover" style="width: 100%" id="MainTableEnrollmentRegistration">
+                        <tbody id="TableBodyMainTableEnrollmentRegistration">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @Html.TextBox("HiddenFieldChallanGuID", null, new { @class = "form-control", Value = ViewBag.ChallanGuID, hidden = true, @id = "HiddenFieldChallanGuID" })
+        @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
+
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+                <input type="button" class="btn btn-link" id="back_button" onclick="back()" value="Back" />
+                <input type="button" class="btn btn-primary ms-2" id="next_button" onclick="next()" value="Next" />
+            </div>
+
+            @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.INSERT_DATA_INTO_DB))
+            {
+                <div class="DivDB_OperationButton" style="display:none">
+
+                    <div class="d-flex align-items-center" id="DivButtonSubmitDown" style="display:none">
+                        <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Submit" />
+                        <i class="fa fa-arrow-up ms-2"></i>
+                    </div>
+                </div>
+            }
+            @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+            {
+                <div class="DivDB_OperationButton" style="display:none">
+
+                    <div class="d-flex align-items-center" id="DivButtonUpdateDown" style="display:none">
+                        <input type="button" class="btn btn-info" id="ButtonUpdateDown" value="Update" />
+                        <i class="fa fa-arrow-up ms-2"></i>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+}
+
+<script src="~/SiteAssets/Uttility/Wizard_Stepper.js"></script>
+<script src="~/SiteScripts/AAccounts/MChallanUI/CreateNewAccFeeChallan.js"></script>

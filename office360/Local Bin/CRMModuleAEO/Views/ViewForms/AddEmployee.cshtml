@@ -1,0 +1,282 @@
+﻿@using System.Web.Mvc.Html
+
+@{
+    ViewBag.Title = "AEO Assement Setup";
+    Layout = "~/Views/Shared/_LayOut.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="row">
+        <div class="col-md-12 offset-lg-0">
+            <div class="row">
+                <legend style="color: navy; margin-left: 10px">Personal Details</legend>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        @Html.Label("Name", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxEmployeeName", null, new { @class = "form-control", placeholder = "Please Enter Name Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        @Html.Label("Father/Husband", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxFatherHusbandName", null, new { @class = "form-control", placeholder = "Please Enter Father or Husband Name Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        @Html.Label("CNIC No", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxCnic", null, new { @class = "form-control", placeholder = "Please Enter CNIC Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        @Html.Label("Nationality", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-8">
+                            @Html.TextBox("TextBoxNationality", "Pakistani", new { @class = "form-control", placeholder = "Please Enter Nationality Here!" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        @Html.Label("Martial Status", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-7">
+                            @Html.DropDownList("DropDownMartialStatus", new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Choose Your Martial Status", Value = "-1" },
+                                new SelectListItem { Text = "Single", Value = "Single" },
+                                new SelectListItem { Text = "Married", Value = "Married" },
+                                new SelectListItem { Text = "Divorced", Value = "Divorced" }
+                            }, new { @class = "select2 form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        @Html.Label("Gender", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-5">
+                            @Html.DropDownList("DropDownGender", new List<SelectListItem>
+                                        {
+                                            new SelectListItem { Text = "Choose Your Martial Status", Value = "-1" },
+                                            new SelectListItem { Text = "Male", Value = "Male" },
+                                            new SelectListItem { Text = "Female", Value = "Female" },
+                                            new SelectListItem { Text = "Transgender", Value = "Transgender" }
+                                        }, new { @class = "select2 form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="TextBoxDOB" class="col-sm-3 col-form-label">Date of Birth</label>
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxDOB", null, new { @class = "form-control datetimepicker", placeholder = "Please Enter Date of Birth Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="TextBoxAge" class="col-sm-3 col-form-label">Age</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("TextBoxAge", null, new { @class = "form-control", placeholder = "Please Enter Age Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <legend style="color:navy; margin-left:10px">Contact Details</legend>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="TextBoxEmail" class="col-sm-3 col-form-label">Email Address</label>
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxEmail", null, new { @class = "form-control", placeholder = "Please Enter Email Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="TextBoxPhone" class="col-sm-3 col-form-label">Phone</label>
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxPhone", null, new { @class = "form-control", placeholder = "Please Enter Phone Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="TextBoxPhone" class="col-sm-3 col-form-label">Home</label>
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxHome", null, new { @class = "form-control", placeholder = "Please Enter Phone Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <legend style="color:navy; margin-left:10px">Address Details</legend>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="DropDownCountry" class="col-sm-3 col-form-label">Country</label>
+                        <div class="col-sm-8 select2-purple">
+                            @Html.DropDownList("DropDownCountry", new List<SelectListItem> { new SelectListItem { Text = "Pakistan", Value = "1" } }, new { @class = "select2 form-control", disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="DropDownCity" class="col-sm-3 col-form-label">City</label>
+                        <div class="col-sm-8 select2-purple">
+                            @Html.DropDownList("DropDownCity", Enumerable.Empty<SelectListItem>(), new { @class = "select2 form-control select2-purple", id = "DropDownCity", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        <label for="TextBoxAddress" class="col-md-2 col-form-label">Address</label>
+                        <div class="col-sm-9">
+                            @Html.TextArea("TextBoxAddress", null, new { @class = "form-control", placeholder = "Please Enter Address Here!", rows = "4" })
+                        </div>
+                    </div>
+                </div>
+
+                <legend style="color:navy; margin-left:10px">Tax Details</legend>
+
+                <div class="col-sm-9">
+                    <div class="form-group row">
+                        <label for="DropDownCountry" class="col-sm-2 col-form-label">Income Tax</label>
+                        <div class="col-sm-10   select2-red">
+                            @Html.DropDownList("DropDownIncomeTaxStatus", new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Select An Option", Value = "-1" },
+                                new SelectListItem { Text = "Un-Registered", Value = "0" },
+                                new SelectListItem { Text = "Registered", Value = "1" }
+                            }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" id="DivTextBoxNTNNumber" style="display:none">
+                    <div class="form-group row">
+                        <label for="TextBoxNTNNumber" class="col-md-3 col-form-label">NTN Number</label>
+                        <div class="col-md-8">
+                            @Html.TextBox("TextBoxNTNNumber", null, new { @class = "form-control", placeholder = "Please Enter NTN Number Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <legend style="color:navy; margin-left:10px">Account Details</legend>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="TextBoxBankName" class="col-sm-3 col-form-label">Bank Name</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownList("DropDownBankName", Enumerable.Empty<SelectListItem>(), new { @class = "select2 form-control select2-red", id = "DropDownBankName", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="DropDownBankBranch" class="col-sm-3 col-form-label">Bank Branch</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownList("DropDownBankBranch", Enumerable.Empty<SelectListItem>(), new { @class = "select2 form-control select2-red", id = "DropDownBankBranch", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="TextBoxAccountTitle" class="col-sm-3 col-form-label">Account Title</label>
+                        <div class="col-sm-8">
+                            @Html.TextBox("TextBoxAccountTitle", null, new { @class = "form-control", placeholder = "Please Enter Account Title Here!" })
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-9">
+                    <div class="form-group row">
+                        <label for="TextBoxAccountNumber" class="col-md-2 col-form-label">Account Number</label>
+                        <div class="col-md-9">
+                            @Html.TextBox("TextBoxAccountNumber", null, new { @class = "form-control", placeholder = "Please Enter Account Number Here!" })
+                        </div>
+                    </div>
+                </div>
+
+                <legend style="color:navy; margin-left:10px">Recruitment Details</legend>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="DropDownListBranch" class="col-sm-3 col-form-label">Branch</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownList("DropDownListBranch", Enumerable.Empty<SelectListItem>(), new { @class = "select2 form-control select2-red", id = "DropDownListBranch", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="DropDownDepartment" class="col-sm-3 col-form-label">Department</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownList("DropDownDepartment", Enumerable.Empty<SelectListItem>(), new { @class = "select2 form-control select2-red", id = "DropDownDepartment", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="DropDownDesignation" class="col-sm-3 col-form-label">Designation</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownList("DropDownDesignation", Enumerable.Empty<SelectListItem>(), new { @class = "select2 form-control select2-red", id = "DropDownDesignation", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="DropDownDesignation" class="col-sm-3 col-form-label">Employee Type</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownList("DropDownEmployeeType", Enumerable.Empty<SelectListItem>(), new { @class = "select2 form-control select2-red", id = "DropDownEmployeeType", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="TextBoxJoiningDate" class="col-sm-3 col-form-label">Joining Date</label>
+                        <div class="col-sm-9">
+                            @Html.TextBox("TextBoxJoiningDate", null, new { @class = "form-control datetimepicker", placeholder = "Please Enter Joining Date Here!" })
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+}
+
+<div class="m-t-20 text-center btn btn-primary">
+    <i class="fa fa-save btn"></i><span>
+        <input type="button" class="btn btn-primary" id="SubmitDown" value="Save Employee" />
+    </span>
+</div>
+
+<script src="~/Areas/CRMModuleAEO/JsScript/AddEmployee.js"></script>

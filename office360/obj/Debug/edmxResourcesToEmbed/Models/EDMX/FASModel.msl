@@ -1,0 +1,1245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FASModelStoreContainer" CdmEntityContainer="FASEntities">
+    <EntitySetMapping Name="AASM_AdmissionSession">
+      <EntityTypeMapping TypeName="FASModel.AASM_AdmissionSession">
+        <MappingFragment StoreEntitySet="AASM_AdmissionSession">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AcademicYearId" ColumnName="AcademicYearId" />
+          <ScalarProperty Name="AdmissionStartDate" ColumnName="AdmissionStartDate" />
+          <ScalarProperty Name="AdmissionEndDate" ColumnName="AdmissionEndDate" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AASM_AdmissionSessionClass">
+      <EntityTypeMapping TypeName="FASModel.AASM_AdmissionSessionClass">
+        <MappingFragment StoreEntitySet="AASM_AdmissionSessionClass">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="AdmissionSessionId" ColumnName="AdmissionSessionId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="IsEnteryTestRequired" ColumnName="IsEnteryTestRequired" />
+          <ScalarProperty Name="IsInterviewRequired" ColumnName="IsInterviewRequired" />
+          <ScalarProperty Name="SessionStartDate" ColumnName="SessionStartDate" />
+          <ScalarProperty Name="SessionEndDate" ColumnName="SessionEndDate" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCM_ClassCurriculum">
+      <EntityTypeMapping TypeName="FASModel.ACCM_ClassCurriculum">
+        <MappingFragment StoreEntitySet="ACCM_ClassCurriculum">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCM_ClassCurriculumSubject">
+      <EntityTypeMapping TypeName="FASModel.ACCM_ClassCurriculumSubject">
+        <MappingFragment StoreEntitySet="ACCM_ClassCurriculumSubject">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="ClassCurriculumId" ColumnName="ClassCurriculumId" />
+          <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACFSM_ClassFeeStructure">
+      <EntityTypeMapping TypeName="FASModel.ACFSM_ClassFeeStructure">
+        <MappingFragment StoreEntitySet="ACFSM_ClassFeeStructure">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ChallanMethodId" ColumnName="ChallanMethodId" />
+          <ScalarProperty Name="WHTaxPolicyId" ColumnName="WHTaxPolicyId" />
+          <ScalarProperty Name="AdmissionSessionId" ColumnName="AdmissionSessionId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACFSM_ClassFeeStructureFeeType">
+      <EntityTypeMapping TypeName="FASModel.ACFSM_ClassFeeStructureFeeType">
+        <MappingFragment StoreEntitySet="ACFSM_ClassFeeStructureFeeType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="ClassFeeStructureId" ColumnName="ClassFeeStructureId" />
+          <ScalarProperty Name="FeeTypeId" ColumnName="FeeTypeId" />
+          <ScalarProperty Name="RevenueAccountId" ColumnName="RevenueAccountId" />
+          <ScalarProperty Name="AssetAccountId" ColumnName="AssetAccountId" />
+          <ScalarProperty Name="LiabilityAccountId" ColumnName="LiabilityAccountId" />
+          <ScalarProperty Name="CostOfSaleAccountId" ColumnName="CostOfSaleAccountId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACM_Class">
+      <EntityTypeMapping TypeName="FASModel.ACM_Class">
+        <MappingFragment StoreEntitySet="ACM_Class">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StudyLevelId" ColumnName="StudyLevelId" />
+          <ScalarProperty Name="StudyGroupId" ColumnName="StudyGroupId" />
+          <ScalarProperty Name="StudySchemeId" ColumnName="StudySchemeId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACOAM_ChartOfAccount">
+      <EntityTypeMapping TypeName="FASModel.ACOAM_ChartOfAccount">
+        <MappingFragment StoreEntitySet="ACOAM_ChartOfAccount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
+          <ScalarProperty Name="AccountCategoryId" ColumnName="AccountCategoryId" />
+          <ScalarProperty Name="FinancialStatementId" ColumnName="FinancialStatementId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADTM_DiscountType">
+      <EntityTypeMapping TypeName="FASModel.ADTM_DiscountType">
+        <MappingFragment StoreEntitySet="ADTM_DiscountType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CostOfSaleAccountId" ColumnName="CostOfSaleAccountId" />
+          <ScalarProperty Name="IsByPercentage" ColumnName="IsByPercentage" />
+          <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+          <ScalarProperty Name="IsByAmount" ColumnName="IsByAmount" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AFTM_FeeType">
+      <EntityTypeMapping TypeName="FASModel.AFTM_FeeType">
+        <MappingFragment StoreEntitySet="AFTM_FeeType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FeeCategoryId" ColumnName="FeeCategoryId" />
+          <ScalarProperty Name="ChargingMethodId" ColumnName="ChargingMethodId" />
+          <ScalarProperty Name="IsOnAdmission" ColumnName="IsOnAdmission" />
+          <ScalarProperty Name="IsSecurity" ColumnName="IsSecurity" />
+          <ScalarProperty Name="IsRefundable" ColumnName="IsRefundable" />
+          <ScalarProperty Name="IsDiscount" ColumnName="IsDiscount" />
+          <ScalarProperty Name="RevenueAccountId" ColumnName="RevenueAccountId" />
+          <ScalarProperty Name="AssetAccountId" ColumnName="AssetAccountId" />
+          <ScalarProperty Name="LiabilityAccountId" ColumnName="LiabilityAccountId" />
+          <ScalarProperty Name="CostOfSaleAccountId" ColumnName="CostOfSaleAccountId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AQM_Question">
+      <EntityTypeMapping TypeName="FASModel.AQM_Question">
+        <MappingFragment StoreEntitySet="AQM_Question">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="Chapter" ColumnName="Chapter" />
+          <ScalarProperty Name="DifficultyLevelId" ColumnName="DifficultyLevelId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="QuestionTypeId" ColumnName="QuestionTypeId" />
+          <ScalarProperty Name="Options" ColumnName="Options" />
+          <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASM_Subject">
+      <EntityTypeMapping TypeName="FASModel.ASM_Subject">
+        <MappingFragment StoreEntitySet="ASM_Subject">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BM_Branch">
+      <EntityTypeMapping TypeName="FASModel.BM_Branch">
+        <MappingFragment StoreEntitySet="BM_Branch">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CampusTypeId" ColumnName="CampusTypeId" />
+          <ScalarProperty Name="OrganizationTypeId" ColumnName="OrganizationTypeId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="NTNNo" ColumnName="NTNNo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_Company">
+      <EntityTypeMapping TypeName="FASModel.CM_Company">
+        <MappingFragment StoreEntitySet="CM_Company">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="AddressLine" ColumnName="AddressLine" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="CompanyWebsite" ColumnName="CompanyWebsite" />
+          <ScalarProperty Name="UploadLogo" ColumnName="UploadLogo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RSM_RightSetting">
+      <EntityTypeMapping TypeName="FASModel.RSM_RightSetting">
+        <MappingFragment StoreEntitySet="RSM_RightSetting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="RightId" ColumnName="RightId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URLTypeId" ColumnName="URLTypeId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SM_Student">
+      <EntityTypeMapping TypeName="FASModel.SM_Student">
+        <MappingFragment StoreEntitySet="SM_Student">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="AdmissionSessionId" ColumnName="AdmissionSessionId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="AdmissionCategoryId" ColumnName="AdmissionCategoryId" />
+          <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentCNIC" ColumnName="StudentCNIC" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="DomicileDistrict" ColumnName="DomicileDistrict" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="FatherCNIC" ColumnName="FatherCNIC" />
+          <ScalarProperty Name="OccupationId" ColumnName="OccupationId" />
+          <ScalarProperty Name="IsFatherAlive" ColumnName="IsFatherAlive" />
+          <ScalarProperty Name="GuardianName" ColumnName="GuardianName" />
+          <ScalarProperty Name="GuardianCNIC" ColumnName="GuardianCNIC" />
+          <ScalarProperty Name="StudentMobile" ColumnName="StudentMobile" />
+          <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+          <ScalarProperty Name="ParentMobile" ColumnName="ParentMobile" />
+          <ScalarProperty Name="LandLine" ColumnName="LandLine" />
+          <ScalarProperty Name="EmergencyMobile" ColumnName="EmergencyMobile" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SSR_StudentSemesterRegistration">
+      <EntityTypeMapping TypeName="FASModel.SSR_StudentSemesterRegistration">
+        <MappingFragment StoreEntitySet="SSR_StudentSemesterRegistration">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="AdmissionSessionId" ColumnName="AdmissionSessionId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UM_User">
+      <EntityTypeMapping TypeName="FASModel.UM_User">
+        <MappingFragment StoreEntitySet="UM_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="AllowedCampusIds" ColumnName="AllowedCampusIds" />
+          <ScalarProperty Name="IsLogIn" ColumnName="IsLogIn" />
+          <ScalarProperty Name="IsDeveloper" ColumnName="IsDeveloper" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="URM_UserRight">
+      <EntityTypeMapping TypeName="FASModel.URM_UserRight">
+        <MappingFragment StoreEntitySet="URM_UserRight">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RightId" ColumnName="RightId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AcademicYear">
+      <EntityTypeMapping TypeName="FASModel.AcademicYear">
+        <MappingFragment StoreEntitySet="AcademicYear">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountCatagory">
+      <EntityTypeMapping TypeName="FASModel.AccountCatagory">
+        <MappingFragment StoreEntitySet="AccountCatagory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountType">
+      <EntityTypeMapping TypeName="FASModel.AccountType">
+        <MappingFragment StoreEntitySet="AccountType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmissionCatagory">
+      <EntityTypeMapping TypeName="FASModel.AdmissionCatagory">
+        <MappingFragment StoreEntitySet="AdmissionCatagory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillingMethod">
+      <EntityTypeMapping TypeName="FASModel.BillingMethod">
+        <MappingFragment StoreEntitySet="BillingMethod">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CampusType">
+      <EntityTypeMapping TypeName="FASModel.CampusType">
+        <MappingFragment StoreEntitySet="CampusType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChallanMethod">
+      <EntityTypeMapping TypeName="FASModel.ChallanMethod">
+        <MappingFragment StoreEntitySet="ChallanMethod">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ChallanNo" ColumnName="ChallanNo" />
+          <ScalarProperty Name="MonthsNo" ColumnName="MonthsNo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChallanType">
+      <EntityTypeMapping TypeName="FASModel.ChallanType">
+        <MappingFragment StoreEntitySet="ChallanType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DB_IF_Condition" ColumnName="DB_IF_Condition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargingMethod">
+      <EntityTypeMapping TypeName="FASModel.ChargingMethod">
+        <MappingFragment StoreEntitySet="ChargingMethod">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsRecurring" ColumnName="IsRecurring" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="FASModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="FASModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CallingCode" ColumnName="CallingCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocType">
+      <EntityTypeMapping TypeName="FASModel.DocType">
+        <MappingFragment StoreEntitySet="DocType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentStatus">
+      <EntityTypeMapping TypeName="FASModel.DocumentStatus">
+        <MappingFragment StoreEntitySet="DocumentStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EducationBoard">
+      <EntityTypeMapping TypeName="FASModel.EducationBoard">
+        <MappingFragment StoreEntitySet="EducationBoard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentType">
+      <EntityTypeMapping TypeName="FASModel.EnrollmentType">
+        <MappingFragment StoreEntitySet="EnrollmentType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportClass">
+      <EntityTypeMapping TypeName="FASModel.ExportClass">
+        <MappingFragment StoreEntitySet="ExportClass">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeCatagory">
+      <EntityTypeMapping TypeName="FASModel.FeeCatagory">
+        <MappingFragment StoreEntitySet="FeeCatagory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsOtherFee" ColumnName="IsOtherFee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinancialStatement">
+      <EntityTypeMapping TypeName="FASModel.FinancialStatement">
+        <MappingFragment StoreEntitySet="FinancialStatement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gender">
+      <EntityTypeMapping TypeName="FASModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MartialStatus">
+      <EntityTypeMapping TypeName="FASModel.MartialStatus">
+        <MappingFragment StoreEntitySet="MartialStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Occupation">
+      <EntityTypeMapping TypeName="FASModel.Occupation">
+        <MappingFragment StoreEntitySet="Occupation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationType">
+      <EntityTypeMapping TypeName="FASModel.OrganizationType">
+        <MappingFragment StoreEntitySet="OrganizationType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolicyPeriod">
+      <EntityTypeMapping TypeName="FASModel.PolicyPeriod">
+        <MappingFragment StoreEntitySet="PolicyPeriod">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionType">
+      <EntityTypeMapping TypeName="FASModel.QuestionType">
+        <MappingFragment StoreEntitySet="QuestionType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistrationType">
+      <EntityTypeMapping TypeName="FASModel.RegistrationType">
+        <MappingFragment StoreEntitySet="RegistrationType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relationship">
+      <EntityTypeMapping TypeName="FASModel.Relationship">
+        <MappingFragment StoreEntitySet="Relationship">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Religion">
+      <EntityTypeMapping TypeName="FASModel.Religion">
+        <MappingFragment StoreEntitySet="Religion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Right">
+      <EntityTypeMapping TypeName="FASModel.Right">
+        <MappingFragment StoreEntitySet="Right">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="IsDisplayAllowed" ColumnName="IsDisplayAllowed" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Menu" ColumnName="Menu" />
+          <ScalarProperty Name="RoleIds" ColumnName="RoleIds" />
+          <ScalarProperty Name="SubMenu" ColumnName="SubMenu" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="FASModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RollCallSystem">
+      <EntityTypeMapping TypeName="FASModel.RollCallSystem">
+        <MappingFragment StoreEntitySet="RollCallSystem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semester">
+      <EntityTypeMapping TypeName="FASModel.Semester">
+        <MappingFragment StoreEntitySet="Semester">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StudySchemeId" ColumnName="StudySchemeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudyGroup">
+      <EntityTypeMapping TypeName="FASModel.StudyGroup">
+        <MappingFragment StoreEntitySet="StudyGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudyLevel">
+      <EntityTypeMapping TypeName="FASModel.StudyLevel">
+        <MappingFragment StoreEntitySet="StudyLevel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudyScheme">
+      <EntityTypeMapping TypeName="FASModel.StudyScheme">
+        <MappingFragment StoreEntitySet="StudyScheme">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsSemesterRequired" ColumnName="IsSemesterRequired" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="URLType">
+      <EntityTypeMapping TypeName="FASModel.URLType">
+        <MappingFragment StoreEntitySet="URLType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WHTaxPolicy">
+      <EntityTypeMapping TypeName="FASModel.WHTaxPolicy">
+        <MappingFragment StoreEntitySet="WHTaxPolicy">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="SlabAmount" ColumnName="SlabAmount" />
+          <ScalarProperty Name="FixedCharges" ColumnName="FixedCharges" />
+          <ScalarProperty Name="IsOnExceedingAmount" ColumnName="IsOnExceedingAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkingShift">
+      <EntityTypeMapping TypeName="FASModel.WorkingShift">
+        <MappingFragment StoreEntitySet="WorkingShift">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="FASModel.Store.fn_CodeSplitByCommaAsINT" FunctionImportName="fn_CodeSplitByCommaAsINT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.fn_CodeSplitByCommaAsINT_Result">
+          <ScalarProperty Name="sID" ColumnName="sID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="FASModel.Store.fn_CodeSplitByCommaAsUniqueIdentifier" FunctionImportName="fn_CodeSplitByCommaAsUniqueIdentifier">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.fn_CodeSplitByCommaAsUniqueIdentifier_Result">
+          <ScalarProperty Name="sID" ColumnName="sID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="FASModel.Store.fn_GetCommaSepratedValuesInList" FunctionImportName="fn_GetCommaSepratedValuesInList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.fn_GetCommaSepratedValuesInList_Result">
+          <ScalarProperty Name="sID" ColumnName="sID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AASM_AdmissionSession_GetListByParam" FunctionName="FASModel.Store.AASM_AdmissionSession_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.AASM_AdmissionSession_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AASM_AdmissionSession_GetListBySearch" FunctionName="FASModel.Store.AASM_AdmissionSession_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.AASM_AdmissionSession_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AdmissionStartDate" ColumnName="AdmissionStartDate" />
+          <ScalarProperty Name="AdmissionEndDate" ColumnName="AdmissionEndDate" />
+          <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Campus" ColumnName="Campus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AASM_AdmissionSession_Upsert" FunctionName="FASModel.Store.AASM_AdmissionSession_Upsert" />
+    <FunctionImportMapping FunctionImportName="ACCM_ClassCurriculum_GetListByParam" FunctionName="FASModel.Store.ACCM_ClassCurriculum_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ACCM_ClassCurriculum_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACCM_ClassCurriculum_GetListBySearch" FunctionName="FASModel.Store.ACCM_ClassCurriculum_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ACCM_ClassCurriculum_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Campus" ColumnName="Campus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACCM_ClassCurriculum_Upsert" FunctionName="FASModel.Store.ACCM_ClassCurriculum_Upsert" />
+    <FunctionImportMapping FunctionImportName="ACFSM_ClassFeeStructure_GetListByParam" FunctionName="FASModel.Store.ACFSM_ClassFeeStructure_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ACFSM_ClassFeeStructure_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACFSM_ClassFeeStructure_GetListBySearch" FunctionName="FASModel.Store.ACFSM_ClassFeeStructure_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ACFSM_ClassFeeStructure_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ChallanMethod" ColumnName="ChallanMethod" />
+          <ScalarProperty Name="WHTaxPolicy" ColumnName="WHTaxPolicy" />
+          <ScalarProperty Name="AdmissionSession" ColumnName="AdmissionSession" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Campus" ColumnName="Campus" />
+          <ScalarProperty Name="NetFee" ColumnName="NetFee" />
+          <ScalarProperty Name="WithHoldingTax" ColumnName="WithHoldingTax" />
+          <ScalarProperty Name="GrossFee" ColumnName="GrossFee" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACFSM_ClassFeeStructure_Upsert" FunctionName="FASModel.Store.ACFSM_ClassFeeStructure_Upsert" />
+    <FunctionImportMapping FunctionImportName="ACM_Class_GetListByParam" FunctionName="FASModel.Store.ACM_Class_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ACM_Class_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StudySchemeId" ColumnName="StudySchemeId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACM_Class_GetListBySearch" FunctionName="FASModel.Store.ACM_Class_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ACM_Class_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StudyLevel" ColumnName="StudyLevel" />
+          <ScalarProperty Name="StudyGroup" ColumnName="StudyGroup" />
+          <ScalarProperty Name="StudyScheme" ColumnName="StudyScheme" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Campus" ColumnName="Campus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACM_Class_Upsert" FunctionName="FASModel.Store.ACM_Class_Upsert" />
+    <FunctionImportMapping FunctionImportName="ACOAM_ChartOfAccount_GetListByParam" FunctionName="FASModel.Store.ACOAM_ChartOfAccount_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ACOAM_ChartOfAccount_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOAM_ChartOfAccount_GetListBySearch" FunctionName="FASModel.Store.ACOAM_ChartOfAccount_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ACOAM_ChartOfAccount_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="AccountCatagory" ColumnName="AccountCatagory" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOAM_ChartOfAccount_Upsert" FunctionName="FASModel.Store.ACOAM_ChartOfAccount_Upsert" />
+    <FunctionImportMapping FunctionImportName="ADTM_DiscountType_GetListByParam" FunctionName="FASModel.Store.ADTM_DiscountType_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ADTM_DiscountType_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ADTM_DiscountType_GetListBySearch" FunctionName="FASModel.Store.ADTM_DiscountType_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ADTM_DiscountType_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CostOfSaleAccount" ColumnName="CostOfSaleAccount" />
+          <ScalarProperty Name="IsByPercentage" ColumnName="IsByPercentage" />
+          <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+          <ScalarProperty Name="IsByAmount" ColumnName="IsByAmount" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ADTM_DiscountType_Upsert" FunctionName="FASModel.Store.ADTM_DiscountType_Upsert" />
+    <FunctionImportMapping FunctionImportName="AFTM_FeeType_GetListByParam" FunctionName="FASModel.Store.AFTM_FeeType_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.AFTM_FeeType_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AFTM_FeeType_GetListBySearch" FunctionName="FASModel.Store.AFTM_FeeType_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.AFTM_FeeType_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsOnAdmission" ColumnName="IsOnAdmission" />
+          <ScalarProperty Name="IsDiscount" ColumnName="IsDiscount" />
+          <ScalarProperty Name="IsRefundable" ColumnName="IsRefundable" />
+          <ScalarProperty Name="IsSecurity" ColumnName="IsSecurity" />
+          <ScalarProperty Name="FeeCatagory" ColumnName="FeeCatagory" />
+          <ScalarProperty Name="ChargingMethod" ColumnName="ChargingMethod" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AFTM_FeeType_Upsert" FunctionName="FASModel.Store.AFTM_FeeType_Upsert" />
+    <FunctionImportMapping FunctionImportName="AQM_Question_Upsert" FunctionName="FASModel.Store.AQM_Question_Upsert" />
+    <FunctionImportMapping FunctionImportName="ASM_Subject_GetListByParam" FunctionName="FASModel.Store.ASM_Subject_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ASM_Subject_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ASM_Subject_GetListBySearch" FunctionName="FASModel.Store.ASM_Subject_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.ASM_Subject_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ASM_Subject_Upsert" FunctionName="FASModel.Store.ASM_Subject_Upsert" />
+    <FunctionImportMapping FunctionImportName="BM_Branch_GetListByParam" FunctionName="FASModel.Store.BM_Branch_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.BM_Branch_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ExtraClass" ColumnName="ExtraClass" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BM_Branch_GetListBySearch" FunctionName="FASModel.Store.BM_Branch_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.BM_Branch_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CampusType" ColumnName="CampusType" />
+          <ScalarProperty Name="OrganizationType" ColumnName="OrganizationType" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="NTNNo" ColumnName="NTNNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BM_Branch_Upsert" FunctionName="FASModel.Store.BM_Branch_Upsert" />
+    <FunctionImportMapping FunctionImportName="CM_Company_GetDetailByParam" FunctionName="FASModel.Store.CM_Company_GetDetailByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.CM_Company_GetDetailByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="AddressLine" ColumnName="AddressLine" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="CompanyWebsite" ColumnName="CompanyWebsite" />
+          <ScalarProperty Name="UploadLogo" ColumnName="UploadLogo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CM_Company_GetListByParam" FunctionName="FASModel.Store.CM_Company_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.CM_Company_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CM_Company_Upsert" FunctionName="FASModel.Store.CM_Company_Upsert" />
+    <FunctionImportMapping FunctionImportName="RSM_RightSetting_GetDetailByParam" FunctionName="FASModel.Store.RSM_RightSetting_GetDetailByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.RSM_RightSetting_GetDetailByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="IsDisplayAllowed" ColumnName="IsDisplayAllowed" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Menu" ColumnName="Menu" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DB_OperationType" ColumnName="DB_OperationType" />
+          <ScalarProperty Name="URLTypeId" ColumnName="URLTypeId" />
+          <ScalarProperty Name="SubMenu" ColumnName="SubMenu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RSM_RightSetting_GetListByParam" FunctionName="FASModel.Store.RSM_RightSetting_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.RSM_RightSetting_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RSM_RightSetting_Upsert" FunctionName="FASModel.Store.RSM_RightSetting_Upsert" />
+    <FunctionImportMapping FunctionImportName="SM_Student_GetListByParam" FunctionName="FASModel.Store.SM_Student_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.SM_Student_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SM_Student_GetListBySearch" FunctionName="FASModel.Store.SM_Student_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.SM_Student_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentCNIC" ColumnName="StudentCNIC" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="FatherCNIC" ColumnName="FatherCNIC" />
+          <ScalarProperty Name="StudentMobile" ColumnName="StudentMobile" />
+          <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="AdmissionSession" ColumnName="AdmissionSession" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SM_Student_Upsert" FunctionName="FASModel.Store.SM_Student_Upsert" />
+    <FunctionImportMapping FunctionImportName="So_Far_Best" FunctionName="FASModel.Store.So_Far_Best" />
+    <FunctionImportMapping FunctionImportName="UM_User_GetDetailByParam" FunctionName="FASModel.Store.UM_User_GetDetailByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.UM_User_GetDetailByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsLogIn" ColumnName="IsLogIn" />
+          <ScalarProperty Name="AllowedCampusIds" ColumnName="AllowedCampusIds" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="IsDeveloper" ColumnName="IsDeveloper" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UM_User_GetListByParam" FunctionName="FASModel.Store.UM_User_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.UM_User_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UM_User_GetListBySearch" FunctionName="FASModel.Store.UM_User_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.UM_User_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="AllowedCampusIds" ColumnName="AllowedCampusIds" />
+          <ScalarProperty Name="IsLogIn" ColumnName="IsLogIn" />
+          <ScalarProperty Name="IsDeveloper" ColumnName="IsDeveloper" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UM_User_Upsert" FunctionName="FASModel.Store.UM_User_Upsert" />
+    <FunctionImportMapping FunctionImportName="URM_UserRight_GetListByParam" FunctionName="FASModel.Store.URM_UserRight_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.URM_UserRight_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="URM_UserRight_GetListBySearch" FunctionName="FASModel.Store.URM_UserRight_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FASModel.URM_UserRight_GetListBySearch_Result">
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="URM_UserRight_Upsert" FunctionName="FASModel.Store.URM_UserRight_Upsert" />
+  </EntityContainerMapping>
+</Mapping>

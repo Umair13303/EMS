@@ -1,0 +1,165 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between align-items-center">
+                    <h4>@ViewBag.Title</h4>
+
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);">Account</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);">Fee</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <span>@ViewBag.Title</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="card" style="margin-top:1%;width:100%">
+        <div class="card-body">
+            <form>
+
+
+
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-8">
+                        <div class="form-group">
+                            @Html.Label("Campus", new { @class = "col-form-label", @for = "DropDownListCampus" })
+                            @Html.DropDownList("DropDownListCampus", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampus" })
+                        </div>
+                    </div>
+                </div>
+                @if (ViewBag.DB_OperationType == nameof(office360.Models.General.DBListCondition.DB_OperationType.UPDATE_DATA_INTO_DB))
+                {
+
+                    <div class="row mb-0">
+                        <div class="col-sm-12 col-md-8">
+                            <div class="form-group">
+                                @Html.Label("Fee Structure ( For Edit )", new { @class = "col-form-label", @for = "DropDownListFeeStructure" })
+                                @Html.DropDownList("DropDownListFeeStructure", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListFeeStructure" })
+                                <button type="button" class="btn btn-info" id="ButtonSubmitGetInfoForEdit">
+                                    <i class="fa fa-sync-alt"></i> Load Information
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Session", new { @class = "col-form-label", @for = "DropDownListSession" })
+                            @Html.DropDownList("DropDownListSession", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSession" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Class", new { @class = "col-form-label", @for = "DropDownListClass" })
+                            @Html.DropDownList("DropDownListClass", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListClass" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("WHTax Policy", new { @class = "col-form-label", @for = "DropDownListWHTaxPolicy" })
+                            @Html.DropDownList("DropDownListWHTaxPolicy", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListWHTaxPolicy" })
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Fee Structure Detail</h3>
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-5">
+                        <div class="form-group">
+                           
+                            @Html.Label("Fee Type", new { @class = "col-form-label", @for = "DropDownListFeeType" })
+                            @Html.DropDownList("DropDownListFeeType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListFeeType" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3" id="DivDropDownListRevenueAccount" style="display: none">
+                        <div class="form-group">
+                            @Html.Label("Revenue A/c", new { @class = "col-form-label", @for = "DropDownListRevenueAccount" })
+                            @Html.DropDownList("DropDownListRevenueAccount", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListRevenueAccount" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-3" id="DivDropDownListAssetAccount" style="display: none">
+                        <div class="form-group">
+                            @Html.Label("Asset A/c", new { @class = "col-form-label", @for = "DropDownListAssetAccount" })
+                            @Html.DropDownList("DropDownListAssetAccount", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListAssetAccount" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-3" id="DivDropDownListLiabilityAccount" style="display:none">
+                        <div class="form-group">
+                            @Html.Label("Liability A/c", new { @class = "col-form-label", @for = "DropDownListLiabilityAccount" })
+                            @Html.DropDownList("DropDownListLiabilityAccount", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListLiabilityAccount" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-3" id="DivDropDownListCostOfSaleAccount" style="display:none">
+                        <div class="form-group">
+                            @Html.Label("Cost Of Sale A/c", new { @class = "col-form-label", @for = "DropDownListCostOfSaleAccount" })
+                            @Html.DropDownList("DropDownListCostOfSaleAccount", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCostOfSaleAccount" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-3">
+                        <div class="form-group">
+                            @Html.Label("Amount", new { @class = "col-form-label", @for = "TextBoxAmount" })
+                            <div class="input-group">
+                                @Html.TextBox("TextBoxAmount", null, new { @class = "form-control amount", placeholder = "Please Enter Value Here!", @id = "TextBoxAmount" })
+                                <div id="ButtonPlus" class="input-group-append ">
+                                    <span class="input-group-text"><i class="far fa-plus"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="bootstrap-admin-panel-content">
+                    <table class="table table-bordered table-sm order-column stripe table-hover" style="width: 100%" id="MainTableFeeStructure">
+                        <tbody id="TableBodyMainTableFeeStructure">
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+            @Html.TextBox("HiddenFieldFeeStructureGuID", null, new { @class = "form-control", Value = ViewBag.FeeStructureGuID, hidden = true, @id = "HiddenFieldFeeStructureGuID" })
+            @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
+        </div>
+        <div class="card-footer">
+            <div class="col-sm-12 form-group">
+                <div class="card-heading" id="DivButtonSubmitDown" style="display:block">
+                    <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Sumbit" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+                <div class="card-heading" id="DivButtonUpdateDown" style="display:none">
+                    <input type="button" class="btn btn-warning" id="ButtonUpdateDown" value="Update" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+<script src="~/SiteScripts/AAccounts/MFeeUI/CreateNewAccFeeStructure.js"></script>
