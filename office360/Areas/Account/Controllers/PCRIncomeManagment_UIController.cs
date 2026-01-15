@@ -13,6 +13,7 @@ namespace office360.Areas.Account.Controllers
         #region REGION FOR :: RENDER VIEWS
         public ActionResult CreateUpdate_PCRIncome_UI()
         {
+            ViewBag.Title = "Add / Edit Cash Record";
             return View();
         }
         #endregion

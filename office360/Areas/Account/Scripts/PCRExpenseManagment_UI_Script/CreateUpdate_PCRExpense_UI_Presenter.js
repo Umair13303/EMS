@@ -2,7 +2,7 @@
 
 app.filter('startFrom', function () {
     return function (input, start) {
-        if (!input || !input.length) { return []; } // Return empty array instead of undefined
+        if (!input || !input.length) { return []; }
         start = +start;
         return input.slice(start);
     }
@@ -21,9 +21,6 @@ app.controller('CreateUpdate_PCRExpense_UIController', function ($scope, $http, 
         },
         FilteredExpenseList: []
     };
-
-    $scope.PCRExpenseList = [];
-
     $scope.PCRExpense = {
         GuID: "",
         TransactionDate: $filter('date')(new Date(), 'yyyy-MM-dd'),
@@ -42,22 +39,19 @@ app.controller('CreateUpdate_PCRExpense_UIController', function ($scope, $http, 
         MonthlyPCRExpense: 0,
     };
 
+    $scope.PCRExpenseList = [];
     $scope.ExpenseCategoryList = [];
 
-    $scope.Populate_ExpenseCategory_List = function () {
-        Uttility.startLoading();
-        $http.get('/api/Account/PCRExpenseManagment/GET_ExpenseCategoryList').then(function (response) {
-            console.log(response.data)
-            $scope.ExpenseCategoryList = response.data;
-            Uttility.stopLoading();
-        }, function () { Uttility.stopLoading(); });
+    $scope.Initialize = function () {
+        $scope.ResetForm();
+        $scope.Populate_PCRExpense_List();
+        $scope.Populate_LK_ExpenseCategory_List();
     };
 
     $scope.$watchGroup(['DataTableSetting.Filter.ExpenseCategory', 'PCRExpenseList'], function () {
         $scope.DataTableSetting.DefaultPage = 0;
         $scope.DataTableSetting.FilteredExpenseList = $scope.PCRExpenseList.filter($scope.FilterByCategory);
     });
-
     $scope.FilterByCategory = function (item) {
         var filterVal = $scope.DataTableSetting.Filter.ExpenseCategory;
         if (!filterVal || filterVal === -1 || filterVal === "" || filterVal === null) {
@@ -65,23 +59,23 @@ app.controller('CreateUpdate_PCRExpense_UIController', function ($scope, $http, 
         }
         return item.ExpenseCategoryId == filterVal;
     };
-
     $scope.ExpenseCategorySum = function (list) {
         if (!list) return 0;
         return list.reduce(function (acc, item) {
             return acc + (parseFloat(item.NetAmount) || 0);
         }, 0);
     };
-
     $scope.numberOfPages = function () {
         var listLength = $scope.DataTableSetting.FilteredExpenseList ? $scope.DataTableSetting.FilteredExpenseList.length : 0;
         return Math.ceil(listLength / $scope.DataTableSetting.RecordLength) || 1;
     };
 
-    $scope.Initialize = function () {
-        $scope.ResetForm();
-        $scope.Populate_PCRExpense_List();
-        $scope.Populate_ExpenseCategory_List();
+    $scope.Populate_LK_ExpenseCategory_List = function () {
+        Uttility.startLoading();
+        $http.get('/api/Account/PCRExpenseManagment/GET_ExpenseCategoryList').then(function (response) {
+            $scope.ExpenseCategoryList = response.data;
+            Uttility.stopLoading();
+        }, function () { Uttility.stopLoading(); });
     };
 
     $scope.Populate_PCRExpense_List = function () {
@@ -94,11 +88,6 @@ app.controller('CreateUpdate_PCRExpense_UIController', function ($scope, $http, 
             }, function (error) {
                 Uttility.stopLoading();
             });
-    };
-
-    $scope.Get_ExpenseCategory_ById = function (id) {
-        var cat = $scope.ExpenseCategoryList.find(x => x.Id == id);
-        return cat ? cat.Description : '-';
     };
 
     $scope.Load_PCRExpense_InfoById = function (item, IsEditMode) {

@@ -168,4 +168,48 @@ sharedModule.directive('datePickerRange', function () {
         }
     };
 });
+sharedModule.directive('maskAutoInit', function ($timeout) {
+    return {
+        restrict: 'C',
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModel) {
 
+            function initMask() {
+                // Wrap element in jQuery $() to access plugins
+                var $el = $(element);
+
+                // Check if the plugin exists globally
+                if (typeof $.fn.inputmask === 'undefined') {
+                    console.error("Inputmask plugin is missing! Please include jquery.inputmask.bundle.js");
+                    return;
+                }
+
+                if ($el.hasClass('EmailAddress')) {
+                    $el.inputmask({
+                        mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,20}]",
+                        greedy: false
+                    });
+                } else if ($el.hasClass('PhoneNumber')) {
+                    $el.inputmask("(99) 999-9999");
+                } else if ($el.hasClass('MobileNumber')) {
+                    $el.inputmask("9999-9999999");
+                } else if ($el.hasClass('CNICNumber')) {
+                    $el.inputmask("99999-9999999-9");
+                }
+            }
+
+            // Small delay to ensure jQuery is ready
+            $timeout(initMask, 0);
+
+            // SYNC WITH ANGULAR (Fixes the "Required" validation message)
+            element.on('input keyup change blur', function () {
+                $timeout(function () {
+                    scope.$evalAsync(function () {
+                        ngModel.$setViewValue(element.val());
+                        ngModel.$commitViewValue();
+                    });
+                });
+            });
+        }
+    };
+});

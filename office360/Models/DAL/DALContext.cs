@@ -20,8 +20,11 @@ namespace office360.Models.DAL
             modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
         }
-        public virtual DbSet<PaymentMethod> PaymentMethod { get; set; }
-        public virtual DbSet<ExpenseCategory> ExpenseCategory { get; set; }
+        public virtual DbSet<LK_PaymentMethod> LK_PaymentMethod { get; set; }
+        public virtual DbSet<LK_ExpenseCategory> LK_ExpenseCategory { get; set; }
+        public virtual DbSet<LK_Designation> LK_Designation { get; set; }
+        public virtual DbSet<LK_Bank> LK_Bank { get; set; }
+        public virtual DbSet<LK_EmploymentType> LK_EmploymentType { get; set; }
         public virtual DbSet<Branch> Branch { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<RightSetting> RightSetting { get; set; }
@@ -29,6 +32,8 @@ namespace office360.Models.DAL
         public virtual DbSet<UserRight> UserRight { get; set; }
         public virtual DbSet<PCRIncome> PCRIncome { get; set; }
         public virtual DbSet<PCRExpense> PCRExpense { get; set; }
+        public virtual DbSet<HREmployee> HREmployee { get; set; }
+
 
 
 

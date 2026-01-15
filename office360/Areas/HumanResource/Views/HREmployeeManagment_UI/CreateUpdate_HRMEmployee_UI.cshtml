@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Common/CommonScripts/AngularService/GlobalServices.js"></script>
+<script src="~/Areas/HumanResource/Scripts/HREmployeeManagment_UIScript/CreateUpdate_HRMEmployee_UI_Presenter.js"></script>
+<div class="statbox widget box box-shadow">
+    <div class="widget-header">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                <h4>@ViewBag.Title</h4>
+            </div>
+        </div>
+        <nav class="breadcrumb-one" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">HRM</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Employee Managment</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Add Employee</span></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div ng-app="CreateUpdate_HREmployee_UI" ng-controller="CreateUpdate_HREmployee_UIController" class="mt-2">
+    <form name="HREmployeeForm" novalidate>
+        <div class="row g-3">
+            <div class="col-md-5">
+                <div class="card rounded shadow-sm">
+                    <div class="card-header d-flex justify-content-between align-items-center fw-bold">
+                        <span>Add Employee</span>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" ng-click="ResetForm()">Reset</button>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Employee Name</label>
+                                <input type="text" name="EmployeeName" class="form-control" placeholder="Employee Name" ng-model="HREmployee.EmployeeName">
+                                <div class="text-danger small mt-1" ng-show="HREmployeeForm.EmployeeName.$touched && HREmployeeForm.EmployeeName.$invalid">Required.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Joining Date</label>
+                                <input type="text" name="JoiningDate" class="form-control" ng-model="HREmployee.JoiningDate" date-picker-simple required>
+                                <div class="text-danger small mt-1" ng-show="HREmployeeForm.JoiningDate.$touched && HREmployeeForm.JoiningDate.$invalid">Required.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Emp Type</label>
+                                <select class="form-select" name="EmploymentTypeId" ng-model="HREmployee.EmploymentTypeId" ng-options="p.Id as p.Description for p in EmploymentTypeList track by p.Id" select2 required>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Designation</label>
+                                <select class="form-select" name="DesignationId" ng-model="HREmployee.DesignationId" ng-options="p.Id as p.Description for p in DesignationList track by p.Id" select2 required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <label class="form-label">CNIC No</label>
+                                <input type="text" name="CNICNumber" class="form-control CNICNumber mask-auto-init" placeholder="CNIC No" ng-model="HREmployee.CNICNumber" required model-view-value="true">
+                                <div class="text-danger small mt-1" ng-show="HREmployeeForm.CNICNumber.$touched && HREmployeeForm.CNICNumber.$invalid">Required.</div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-label">Mobile No</label> 
+                                <input type="text" name="MobileNumber" class="form-control MobileNumber mask-auto-init" placeholder="Mobile No" ng-model="HREmployee.MobileNumber" required model-view-value="true">
+                                <div class="text-danger small mt-1" ng-show="HREmployeeForm.MobileNumber.$touched && HREmployeeForm.MobileNumber.$invalid">Required.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label">Email Address</label>
+                                <input type="text" name="EmailAddress" class="form-control EmailAddress mask-auto-init" placeholder="Email Address" ng-model="HREmployee.EmailAddress" required model-view-value="true">
+                                <div class="text-danger small mt-1" ng-show="HREmployeeForm.EmailAddress.$touched && HREmployeeForm.EmailAddress.$invalid">Required.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Bank</label>
+                                <select class="form-select" name="BankId" ng-model="HREmployee.BankId" ng-options="p.Id as p.Description for p in BankList track by p.Id" select2 required>
+                                </select>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label">Account Number</label>
+                                <input type="text" name="AccountNumber" class="form-control mask-auto-init" placeholder="Account Number" ng-model="HREmployee.AccountNumber" required>
+                                <div class="text-danger small mt-1" ng-show="HREmployeeForm.AccountNumber.$touched && HREmployeeForm.AccountNumber.$invalid">Required.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-end">
+                        <button type="button" class="btn btn-primary px-4"
+                                ng-click="UpsertDataIntoDB()"
+                                ng-disabled="IsProcessing || HREmployeeForm.$invalid"
+                                ng-class="{'opacity-50': IsProcessing || HREmployeeForm.$invalid}">
+                            <span ng-show="IsProcessing"><i class="fa fa-spinner fa-spin me-1"></i> Saving...</span>
+                            <span ng-hide="IsProcessing">{{ IsEditMode ? 'Update' : 'Add' }} Record</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

@@ -1,17 +1,17 @@
 ﻿/*----------------------------------** FUNCTION FOR::GLOBAL VARIABLE **-------------------------------------------------------------------------------------*/
-var SELECT_DDL = '.select2';
-var PHONENO = '.PhoneNumber';
-var MOBILENO = '.MobileNumber';
-var CNIC = '.CNICNumber';
-var EMAIL = '.EmailAddress';
-var NTN = '.NTNNumber';
-/*----------------------------------** FUNCTION FOR::INITIALIZER CLASSES **-------------------------------------------------------------------------------------*/
-INITIALIZE_SELECT2(SELECT_DDL);
-INITIALIZE_INPUT_MASK(PHONENO, MASKING.PHONENO);
-INITIALIZE_INPUT_MASK(MOBILENO, MASKING.MOBILENO);
-INITIALIZE_INPUT_MASK(CNIC, MASKING.CNIC);
-INITIALIZE_INPUT_MASK(NTN, MASKING.NTN);
-INITIALIZE_INPUT_MASK(EMAIL, MASKING.EMAIL);
+//var SELECT_DDL = '.select2';
+//var PHONENO = '.PhoneNumber';
+//var MOBILENO = '.MobileNumber';
+//var CNIC = '.CNICNumber';
+//var EMAIL = '.EmailAddress';
+//var NTN = '.NTNNumber';
+///*----------------------------------** FUNCTION FOR::INITIALIZER CLASSES **-------------------------------------------------------------------------------------*/
+//INITIALIZE_SELECT2(SELECT_DDL);
+//INITIALIZE_INPUT_MASK(PHONENO, MASKING.PHONENO);
+//INITIALIZE_INPUT_MASK(MOBILENO, MASKING.MOBILENO);
+//INITIALIZE_INPUT_MASK(CNIC, MASKING.CNIC);
+//INITIALIZE_INPUT_MASK(NTN, MASKING.NTN);
+//INITIALIZE_INPUT_MASK(EMAIL, MASKING.EMAIL);
 
 
 /*----------------------------------** FUNCTION FOR::SELECT2 DROPDOWN **-------------------------------------------------------------------------------------*/

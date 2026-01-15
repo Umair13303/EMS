@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Presentation;
+using office360.Areas.Account.DALHelper;
 using office360.Models.DAL;
 using office360.Models.DAL.DTO;
 using office360.Models.General;
@@ -18,6 +19,23 @@ namespace office360.Areas.Account.Controllers
     public class PCRIncomeManagmentController : ApiController
     {
 
+        #region REGION FOR :: LOOKUP APIS
+        [HttpGet]
+        public IHttpActionResult GET_PaymentMethodList()
+        {
+            using (EMSIntegCubeEntities dal = new EMSIntegCubeEntities())
+            {
+                var PaymentMethodList = dal.LK_PaymentMethod.AsNoTracking().Where(x => x.Status == true)
+                     .Select(x => new
+                     {
+                         x.Id,
+                         x.Description,
+                     }).ToList();
+                return Ok(PaymentMethodList);
+            }
+        }
+        #endregion
+
         #region REGION FOR :: UPSERT DATA INTO DBO.PCRIncome
         [HttpPost]
         public IHttpActionResult UpsetDataIntoDB([FromUri] string OperationType, [FromBody] PCRIncome postedData)
@@ -32,7 +50,7 @@ namespace office360.Areas.Account.Controllers
                 else
                 {
                     #region CHECK IF DUPLICATE RECORD EXIST
-                    int? OperationStatus = Is_Exist_PCRIncome(OperationType, postedData.GuID, postedData.Description);
+                    int? OperationStatus = Record_Validator.Is_Exist_PCRIncome(OperationType, postedData.GuID, postedData.Description);
                     #endregion
                     if (OperationType == nameof(DB_OperationType.INSERT_DATA_INTO_DB))
                     {
@@ -143,22 +161,7 @@ namespace office360.Areas.Account.Controllers
             }
         }
         #endregion
-        #region REGION FOR :: UTTITLITY APIS
-        [HttpGet]
-        public IHttpActionResult GET_PaymentMethodList()
-        {
-            using (EMSIntegCubeEntities dal = new EMSIntegCubeEntities())
-            {
-                var PaymentMethodList = dal.PaymentMethod.AsNoTracking().Where(x => x.Status == true)
-                     .Select(x => new
-                     {
-                         x.Id,
-                         x.Description,
-                     }).ToList();
-                return Ok(PaymentMethodList);
-            }
-        }
-        #endregion
+
         #region REGION FOR :: GET DATA FROM DBO.PCRIncome FOR LIST
         [HttpGet]
         public IHttpActionResult GET_PCRIncomeList()
@@ -212,51 +215,5 @@ namespace office360.Areas.Account.Controllers
         }
         #endregion
 
-        #region DUPLICATE CHECK METHOD
-        public static int? Is_Exist_PCRIncome(string OperationType,Guid? GuID, string Description)
-        {
-            bool IsRecordExist = false;
-            int? Response = (int?)Http_DB_Response.CODE_DATA_ALREADY_EXIST;
-            using (EMSIntegCubeEntities dal = new EMSIntegCubeEntities())
-            {
-                switch (OperationType)
-                {
-                    case nameof(DB_OperationType.INSERT_DATA_INTO_DB):
-                        #region IN CASE OF INSERT :: CHECK IF ENTERY RECORD EXIST , BASED ON DATA ENTERED
-                        IsRecordExist = dal.PCRIncome
-                            .Any(x =>
-                                 x.Description == Description
-                                && x.Status == true
-                            );
-                        #endregion
-                        if (!IsRecordExist)
-                            Response = (int?)Http_DB_Response.CODE_AUTHORIZED;
-                        else
-                            Response = (int?)Http_DB_Response.CODE_DATA_ALREADY_EXIST;
-                        break;
-
-                    case nameof(DB_OperationType.UPDATE_DATA_INTO_DB):
-                        IsRecordExist = dal.PCRIncome
-                            .Any(x =>
-                                 x.GuID == GuID
-                                && x.Status == true
-                            );
-                        if (!IsRecordExist)
-                            Response = (int?)Http_DB_Response.CODE_DATA_DOES_NOT_EXIST;
-                        else
-                            Response = (int?)Http_DB_Response.CODE_AUTHORIZED;
-                        break;
-                    default:
-                        Response = (int?)Http_DB_Response.CODE_DATA_ALREADY_EXIST;
-                        break;
-                }
-
-
-            }
-
-            return Response;
-
-        }
-        #endregion
     }
 }

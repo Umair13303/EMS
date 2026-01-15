@@ -1,4 +1,5 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -42,101 +43,125 @@
     <link href="~/_Theme2/assets/css/forms/switches.css" rel="stylesheet" />
 
     <style>
+
         /* Force remove sidebar space */
-        .sidebar-wrapper {
-            display: none !important;
+                .sidebar-wrapper {
+                        display: none !important;
+
         }
 
-        .main-container {
-            padding: 0 !important;
-            margin: 0 !important;
+                .main-container {
+                        padding: 0 !important;
+                        margin: 0 !important;
+
         }
+
 
         /* Content alignment fix - KILL THE 255px LEFT MARGIN */
-        #content {
-            margin-left: 0 !important;
-            width: 100% !important;
-            margin-top: 70px !important; /* Prevents overlap with fixed navbar */
-            padding: 0 20px !important;
+                #content {
+                        margin-left: 0 !important;
+                        width: 100% !important;
+                        margin-top: 70px !important; /* Prevents overlap with fixed navbar */
+                        padding: 0 20px !important;
+
         }
+
 
         /* Modern Navbar Styling */
-        .header-container {
-            background: #ffffff !important;
-            border-bottom: 1px solid #e0e6ed;
-            box-shadow: 0 4px 15px 0 rgba(0,0,0,0.05);
-            padding: 8px 25px;
+                .header-container {
+                        background: #ffffff !important;
+                        border-bottom: 1px solid #e0e6ed;
+                        box-shadow: 0 4px 15px 0 rgba(0,0,0,0.05);
+                        padding: 8px 25px;
+
         }
 
-        .header.navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: transparent !important;
-            box-shadow: none !important;
+                .header.navbar {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        background: transparent !important;
+                        box-shadow: none !important;
+
         }
+
 
         /* Align Navbar buttons with Body content */
-        .nav-left-btns {
-            display: flex;
-            gap: 10px;
-            align-items: center;
+                .nav-left-btns {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+
         }
 
-        .nav-right-items {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+                .nav-right-items {
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+
         }
+
 
         /* Modern Search Input */
-        .topbar-search {
-            width: 300px;
-            border-radius: 30px;
-            background: #f1f2f3;
-            border: 1px solid #d3d3d3;
-            padding: 8px 20px;
-            transition: all 0.3s;
+                .topbar-search {
+                        width: 300px;
+                        border-radius: 30px;
+                        background: #f1f2f3;
+                        border: 1px solid #d3d3d3;
+                        padding: 8px 20px;
+                        transition: all 0.3s;
+
         }
 
-            .topbar-search:focus {
-                width: 350px;
-                background: #fff;
-                box-shadow: 0 0 5px rgba(67, 97, 238, 0.3);
-            }
+                    .topbar-search:focus {
+                            width: 350px;
+                            background: #fff;
+                            box-shadow: 0 0 5px rgba(67, 97, 238, 0.3);
+
+        }
+
 
         /* Unified Card style for the body */
-        .layout-px-spacing {
-            padding: 0 !important;
+                .layout-px-spacing {
+                        padding: 0 !important;
+
         }
 
-        .widget-content-area {
-            border-radius: 10px;
-            border: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+                .widget-content-area {
+                        border-radius: 10px;
+                        border: none;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+
         }
+
+
         /* FOOTER DESIGN */
-        .footer-wrapper {
-            padding: 15px 25px;
-            background: #fff;
-            border-top: 1px solid #e0e6ed;
-            margin-top: 40px;
-            width: 100%;
+                .footer-wrapper {
+                        padding: 15px 25px;
+                        background: #fff;
+                        border-top: 1px solid #e0e6ed;
+                        margin-top: 40px;
+                        width: 100%;
+
         }
 
-        .footer-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #888ea8;
-            font-size: 13px;
-            font-weight: 600;
+                .footer-section {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        color: #888ea8;
+                        font-size: 13px;
+                        font-weight: 600;
+
         }
 
-            .footer-section .brand {
-                color: #4361ee;
-                font-weight: 700;
-            }
+                    .footer-section .brand {
+                            color: #4361ee;
+                            font-weight: 700;
+
+        }
+
+
     </style>
 </head>
 <body class="alt-menu">
@@ -148,25 +173,24 @@
             <div class="nav-left-btns">
                 <form method="post" action="/Account/PCRIncomeManagment_UI/CreateUpdate_PCRIncome_UI" class="m-0">
                     <input type="hidden" name="OperationType" value="UPSERT" />
-                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Add Petty Cash</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Petty Cash</button>
                 </form>
                 <form method="post" action="/Account/PCRExpenseManagment_UI/CreateUpdate_PCRExpense_UI" class="m-0">
                     <input type="hidden" name="OperationType" value="UPSERT" />
-                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Add Expense</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Expense</button>
                 </form>
                 <form method="post" action="/Account/PCRReportManagment_UI/View_PCRLedger_UI" class="m-0">
                     <input type="hidden" name="OperationType" value="VIEW" />
-                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">View Ledger</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Ledger</button>
                 </form>
                 <form method="post" action="/Account/PCRReportManagment_UI/View_PCRCategorySummary_UI" class="m-0">
                     <input type="hidden" name="OperationType" value="VIEW" />
-                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">View Summary</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Summary</button>
                 </form>
-
-            </div>
-
-            <div class="d-none d-md-block">
-                <h4 class="font-weight-bold mb-0" style="color: #3b3f5c;">@ViewBag.Title</h4>
+                <form method="post" action="/HumanResource/HREmployeeManagment_UI/CreateUpdate_HRMEmployee_UI" class="m-0">
+                    <input type="hidden" name="OperationType" value="UPSERT" />
+                    <button type="submit" class="btn btn-primary font-weight-bold shadow-sm">Employee</button>
+                </form>
             </div>
 
             <div class="nav-right-items">
@@ -239,9 +263,9 @@
     <script src="~/Common/CommonScripts/DataTableUI.js"></script>
 
     <script type="text/javascript">
-        var CompanyId = '@office360.Models.General.Session_Manager.CompanyId';
-        var RoleId = '@office360.Models.General.Session_Manager.RoleId';
-        var BranchId = '@office360.Models.General.Session_Manager.BranchId';
+        var CompanyId = '@office360.Models.General.Session_Manager.CompanyId';
+        var RoleId = '@office360.Models.General.Session_Manager.RoleId';
+        var BranchId = '@office360.Models.General.Session_Manager.BranchId';
     </script>
 </body>
 </html>

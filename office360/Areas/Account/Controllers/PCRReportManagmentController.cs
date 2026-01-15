@@ -18,15 +18,14 @@ namespace office360.Areas.Account.Controllers
 
         #region REGION FOR :: GET DATA FROM DBO.PCRLedger_ByDateRange FOR LIST
         [HttpGet]
-        public IHttpActionResult GET_PRCLedger_ByDateRange(string StartDate, string EndDate, int PageNumber = 0, string Search = "", int PageSize = 50)
+        public IHttpActionResult GET_PRCLedger_ByDateRange(string StartDate, string EndDate, int? PageNumber, int? PageSize,string Search = "")
         {
             try
             {
                 int CompanyId = 1;
                 using (EMSIntegCubeEntities dal = new EMSIntegCubeEntities())
                 {
-                    dal.Configuration.LazyLoadingEnabled = false;
-                    dal.Configuration.ProxyCreationEnabled = false;
+
                     #region PCR LEDGER LIST
                     var ParamStartDate = new System.Data.SqlClient.SqlParameter("@StartDate", DateTime.Parse(StartDate));
                     var ParamEndDate = new System.Data.SqlClient.SqlParameter("@EndDate", DateTime.Parse(EndDate));
@@ -63,9 +62,9 @@ namespace office360.Areas.Account.Controllers
 
                     #region PCR LEDGER LIST PAGINATION
                     int TotalCount = PCRLedgerList.Count;
-                    var pagedList = PCRLedgerList.Skip(PageNumber * PageSize).Take(PageSize).ToList();
+                    var pagedList = PCRLedgerList.Skip((int)(PageNumber * PageSize)).Take((int)PageSize).ToList();
                     #endregion
-
+        
                     return Ok(new
                     {
                         Data = pagedList,
@@ -96,7 +95,7 @@ namespace office360.Areas.Account.Controllers
                     dal.Configuration.LazyLoadingEnabled = false;
                     dal.Configuration.ProxyCreationEnabled = false;
                     var PCRExpenseList = (from e in dal.PCRExpense
-                                          join ec in dal.ExpenseCategory
+                                          join ec in dal.LK_ExpenseCategory
                                               on e.ExpenseCategoryId equals ec.Id
                                           where e.TransactionDate >= StartDate && e.TransactionDate < EndDate
                                           select new

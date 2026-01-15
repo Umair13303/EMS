@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ngx-mask": "^20.0.3"
+  }
+}

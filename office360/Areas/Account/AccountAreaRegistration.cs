@@ -3,11 +3,11 @@ using System.Web.Mvc;
 
 namespace office360.Areas.Account
 {
-    public class AccountAreaRegistration : AreaRegistration 
+    public class AccountAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Account";
             }

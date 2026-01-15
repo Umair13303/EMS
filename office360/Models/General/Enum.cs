@@ -27,6 +27,8 @@ namespace office360.Models.General
         BRANCH = 5,
         PETTY_CASH_INCOME=6,
         PETTY_CASH_EXPENSE = 7,
+        HR_Employee = 8,
+
     }
     public enum DOCUMENT_STATUS
     {
@@ -58,6 +60,12 @@ namespace office360.Models.General
 
         ACTIVE_PETTY_CASH_EXPENSE = 16,
         DELETED_PETTY_CASH_EXPENSE = 17,
+
+        ACTIVE_HR_Employee = 18,
+        INACTIVE_HR_Employee = 19,
+        DELETED_HR_Employee = 20,
+
+
 
     }
     public enum DATEPICKER_INCREMENT

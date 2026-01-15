@@ -1,44 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style>
-    @@keyframes blinker {
-        50% {
-            opacity: 0;
-        }
-    }
 
-    .blink-effect {
-        animation: blinker 3s linear infinite;
-    }
-
-    .sticky-top {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: #f8f9fa;
-    }
-
-    .btn-xs {
-        padding: 1px 5px;
-        font-size: 0.7rem;
-        line-height: 1.5;
-    }
-
-    .table-responsive::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    .table-responsive::-webkit-scrollbar-thumb {
-        background: #ccc;
-        border-radius: 10px;
-    }
-    /* Visual feedback for disabled buttons */
-    .btn-primary:disabled {
-        cursor: not-allowed;
-        opacity: 0.7;
-    }
-</style>
 
 <script src="~/Scripts/angular.min.js"></script>
 <script src="~/Common/CommonScripts/AngularService/GlobalServices.js"></script>
@@ -55,17 +18,18 @@
                 <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
                 <li class="breadcrumb-item"><a href="javascript:void(0);">Accounts</a></li>
                 <li class="breadcrumb-item"><a href="javascript:void(0);">Petty Cash Register</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><span>Add Expense</span></li>
+                <li class="breadcrumb-item active" aria-current="page"><span> @ViewBag.Title</span></li>
             </ol>
         </nav>
     </div>
 </div>
-<div ng-app="CreateUpdate_PCRExpense_UI" ng-controller="CreateUpdate_PCRExpense_UIController" style="margin-top:5px">
+
+<div ng-app="CreateUpdate_PCRExpense_UI" ng-controller="CreateUpdate_PCRExpense_UIController" class="mt-2">
     <form name="PCRExpenseForm" novalidate>
         <div class="row g-3">
             <div class="col-md-4">
-                <div class="card rounded shadow-sm">
-                    <div class="card-header d-flex justify-content-between align-items-center fw-bold">
+                <div class="card rounded border-0 shadow-sm">
+                    <div class="card-header d-flex justify-content-between align-items-center fw-bold bg-white">
                         <span>Add Expense Entry</span>
                         <button type="button" class="btn btn-sm btn-outline-secondary" ng-click="ResetForm()">Reset</button>
                     </div>
@@ -73,60 +37,55 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Date</label>
-                                <input type="text" name="TransactionDate" id="TextBoxTransactionDate" class="form-control" ng-model="PCRExpense.TransactionDate" date-picker-simple required>
-                                <div class="text-danger mt-1" ng-show="PCRExpenseForm.TransactionDate.$touched && PCRExpenseForm.TransactionDate.$invalid">Date is required.</div>
+                                <label class="form-label small fw-bold">Date</label>
+                                <input type="text" name="TransactionDate" class="form-control form-control-sm" ng-model="PCRExpense.TransactionDate" date-picker-simple required>
+                                <div class="text-danger small mt-1" ng-show="PCRExpenseForm.TransactionDate.$touched && PCRExpenseForm.TransactionDate.$invalid">Required.</div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Invoice Number</label>
-                                <input type="text" name="InvoiceNumber" class="form-control" placeholder="Enter Invoice" ng-model="PCRExpense.InvoiceNumber">
+                                <label class="form-label small fw-bold">Invoice #</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="Invoice No" ng-model="PCRExpense.InvoiceNumber">
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Description</label>
-                            <textarea name="Description" class="form-control" placeholder="Enter Description" ng-model="PCRExpense.Description" required rows="2"></textarea>
-                            <div class="text-danger mt-1" ng-show="PCRExpenseForm.Description.$touched && PCRExpenseForm.Description.$invalid">Description is required.</div>
+                            <label class="form-label small fw-bold">Description</label>
+                            <textarea class="form-control form-control-sm" placeholder="Enter Description" ng-model="PCRExpense.Description" required rows="2"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Expense Category</label>
-                            <select class="form-select" name="ExpenseCategoryId"
-                                    ng-model="PCRExpense.ExpenseCategoryId"
-                                    ng-options="p.Id as p.Description for p in ExpenseCategoryList track by p.Id" select2 required>
+                            <label class="form-label small fw-bold">Expense Category</label>
+                            <select class="form-select form-select-sm" ng-model="PCRExpense.ExpenseCategoryId" ng-options="p.Id as p.Description for p in ExpenseCategoryList track by p.Id" select2 required>
                             </select>
-                            <div class="text-danger mt-1" ng-show="PCRExpenseForm.ExpenseCategoryId.$touched && PCRExpenseForm.ExpenseCategoryId.$invalid">Please select a category.</div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">Qty</label>
-                                <input type="number" name="Quantity" class="form-control" ng-model="PCRExpense.Quantity" ng-change="PCRExpense.NetAmount = (PCRExpense.Quantity || 0) * (PCRExpense.UnitPrice || 0)" min="1" required>
+                            <div class="col-4 mb-3">
+                                <label class="form-label small fw-bold">Qty</label>
+                                <input type="number" class="form-control form-control-sm" ng-model="PCRExpense.Quantity" ng-change="PCRExpense.NetAmount = (PCRExpense.Quantity || 0) * (PCRExpense.UnitPrice || 0)" min="1" required>
                             </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">Unit Price</label>
-                                <input type="number" name="UnitPrice" class="form-control" ng-model="PCRExpense.UnitPrice" ng-change="PCRExpense.NetAmount = (PCRExpense.Quantity || 0) * (PCRExpense.UnitPrice || 0)" min="0.01" required>
+                            <div class="col-4 mb-3">
+                                <label class="form-label small fw-bold">Price</label>
+                                <input type="number" class="form-control form-control-sm" ng-model="PCRExpense.UnitPrice" ng-change="PCRExpense.NetAmount = (PCRExpense.Quantity || 0) * (PCRExpense.UnitPrice || 0)" min="0.01" required>
                             </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">Net Total</label>
-                                <input type="text" class="form-control bg-light fw-bold text-danger" value="{{PCRExpense.NetAmount | number:2}}" readonly>
+                            <div class="col-4 mb-3">
+                                <label class="form-label small fw-bold">Total</label>
+                                <div class="form-control form-control-sm bg-light fw-bold text-danger text-truncate">{{PCRExpense.NetAmount | number:2}}</div>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Remarks</label>
-                            <textarea name="Remarks" class="form-control" placeholder="Optional notes" ng-model="PCRExpense.Remarks" rows="2"></textarea>
+                            <label class="form-label small fw-bold">Remarks</label>
+                            <textarea class="form-control form-control-sm" placeholder="Optional notes" ng-model="PCRExpense.Remarks" rows="1"></textarea>
                         </div>
                     </div>
 
-                    <div class="card-footer text-end">
+                    <div class="card-footer border-top-0 bg-white text-end">
                         <button type="button" class="btn btn-primary px-4 shadow-sm"
                                 ng-click="UpsertDataIntoDB()"
-                                ng-disabled="isProcessing || PCRExpenseForm.$invalid">
+                                ng-disabled="isProcessing || PCRExpenseForm.$invalid"
+                                ng-class="{'cursor-not-allowed opacity-50': isProcessing || PCRExpenseForm.$invalid}">
                             <span ng-show="isProcessing"><i class="fa fa-spinner fa-spin me-1"></i> Saving...</span>
-                            <span ng-hide="isProcessing">{{ IsEditMode ? 'Update Expense' : 'Add Expense' }}</span>
+                            <span ng-hide="isProcessing">{{ IsEditMode ? 'Update' : 'Add' }} Expense</span>
                         </button>
                     </div>
                 </div>
@@ -139,34 +98,19 @@
                             <div class="col-md-4">
                                 <div class="border-start border-success border-3 shadow-xs rounded bg-white p-2">
                                     <small class="text-muted d-block" style="font-size: 0.65rem;">Total Received</small>
-                                    <span class="fw-bold text-success" style="font-size: 1rem;">{{ PCRKPISummary.SummaryPCRIncome | number:2 }}</span>
+                                    <span class="fw-bold text-success">{{ PCRKPISummary.SummaryPCRIncome | number:2 }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="border-start border-primary border-3 shadow-xs rounded bg-white p-2">
-                                    <small class="text-muted d-block" style="font-size: 0.65rem;">Total Expenditure</small>
-                                    <span class="fw-bold text-primary" style="font-size: 1rem;">{{ PCRKPISummary.SummaryPCRExpense | number:2 }}</span>
+                                    <small class="text-muted d-block" style="font-size: 0.65rem;">Total Expense</small>
+                                    <span class="fw-bold text-primary">{{ PCRKPISummary.SummaryPCRExpense | number:2 }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="border-start border-dark border-3 shadow-xs rounded bg-white p-2">
-                                    <small class="text-muted d-block" style="font-size: 0.65rem;">Available Balance</small>
-                                    <span class="fw-bold text-dark" style="font-size: 1rem;">{{ (PCRKPISummary.SummaryPCRIncome - PCRKPISummary.SummaryPCRExpense) | number:2 }}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row g-2">
-                            <div class="col-md-4">
-                                <div class="border-start border-success border-3 shadow-xs rounded bg-white p-2">
-                                    <small class="text-muted d-block" style="font-size: 0.65rem;">Received In @DateTime.Now.ToString("MMMM")</small>
-                                    <span class="fw-bold text-info" style="font-size: 1rem;">{{ PCRKPISummary.MonthlyPCRIncome | number:2 }}</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="border-start border-primary border-3 shadow-xs rounded bg-white p-2">
-                                    <small class="text-muted d-block" style="font-size: 0.65rem;">Expenditure In  @DateTime.Now.ToString("MMMM")</small>
-                                    <span class="fw-bold text-danger" style="font-size: 1rem;">{{ PCRKPISummary.MonthlyPCRExpense | number:2 }}</span>
+                                    <small class="text-muted d-block" style="font-size: 0.65rem;">Balance</small>
+                                    <span class="fw-bold text-dark">{{ (PCRKPISummary.SummaryPCRIncome - PCRKPISummary.SummaryPCRExpense) | number:2 }}</span>
                                 </div>
                             </div>
                         </div>
@@ -176,59 +120,56 @@
                 <div class="card rounded border-0 shadow-sm">
                     <div class="card-header bg-white py-2">
                         <div class="row align-items-center">
-                            <div class="col-md-4">
+                            <div class="col-sm-6">
                                 <span class="fw-bold small">Transaction History</span>
-                                <div ng-show="DataTableSetting.Filter.ExpenseCategory" class="text-danger" style="font-size: 0.75rem;">
-                                    Sub Total: <strong>{{ ExpenseCategorySum(DataTableSetting.FilteredExpenseList) | number:2 }}</strong>
-                                </div>
-
+                                <span ng-show="DataTableSetting.Filter.ExpenseCategory" class="badge bg-soft-danger text-danger ms-2">
+                                    SubTotal: {{ ExpenseCategorySum(DataTableSetting.FilteredExpenseList) | number:2 }}
+                                </span>
                             </div>
-                            <div class="col-md-8 text-end">
-                                <div class="d-flex justify-content-end gap-1">
-                                    <select class="form-select form-select-sm" style="width: 180px;" ng-model="DataTableSetting.Filter.ExpenseCategory" size="2" ng-options="p.Id as p.Description for p in ExpenseCategoryList track by p.Id">
-                                        <option value="">-- All Categories --</option>
-                                    </select>
-                                </div>
+                            <div class="col-sm-6">
+                                <select class="form-select form-select-sm ms-auto" style="max-width: 200px;" ng-model="DataTableSetting.Filter.ExpenseCategory" ng-options="p.Id as p.Description for p in ExpenseCategoryList track by p.Id" select2>
+                                    <option value="">-- All Categories --</option>
+                                </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-body p-0">
-                        <div class="table-responsive">
+                        <div class="table-responsive overflow-auto" style="max-height: 400px;">
                             <table class="table-sm table-hover mb-0 table" style="font-size: 0.85rem;">
-                                <thead class="table-light sticky-top">
+                                <thead class="table-light sticky-top shadow-sm" style="z-index: 5;">
                                     <tr>
-                                        <th class="ps-3">Date</th>
-                                        <th>Description</th>
-                                        <th>Category</th>
-                                        <th class="pe-3 text-end">Amount</th>
-                                        <th class="text-center">Action</th>
+                                        <th class="border-0 ps-3">Date</th>
+                                        <th class="border-0">Description</th>
+                                        <th class="border-0">Category</th>
+                                        <th class="border-0 pe-3 text-end">Amount</th>
+                                        <th class="border-0 text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="item in DataTableSetting.FilteredExpenseList | startFrom:DataTableSetting.DefaultPage * DataTableSetting.RecordLength | limitTo:DataTableSetting.RecordLength">
-                                        <td class="ps-3">{{ item.TransactionDate | date:'dd-MMM-yyyy' }}</td>
-                                        <td class="text-truncate" style="max-width: 200px;" title="{{item.Description}}">{{ item.Description }}</td>
-                                        <td>{{ Get_ExpenseCategory_ById(item.ExpenseCategoryId) }}</td>
-                                        <td class="fw-bold pe-3 text-end">{{ item.NetAmount | number:2 }}</td>
-                                        <td class="text-center">
-                                            <a href="javascript:void(0)" class="text-primary me-2" ng-click="Load_PCRExpense_InfoById(item, true)"><i class="fa fa-edit"></i></a>
-                                            <a href="javascript:void(0)" class="text-danger" ng-click="Delete_PCRExpense_ById(item.GuID)"><i class="fa fa-trash"></i></a>
+                                        <td class="ps-3 align-middle">{{ item.TransactionDate | date:'dd-MMM-yyyy' }}</td>
+                                        <td class="text-truncate align-middle" style="max-width: 200px;" title="{{item.Description}}">{{ item.Description }}</td>
+                                        <td class="align-middle">{{ item.ExpenseCategory }}</td>
+                                        <td class="fw-bold text-danger pe-3 text-end align-middle">{{ item.NetAmount | number:2 }}</td>
+                                        <td class="text-center align-middle">
+                                            <button class="btn btn-link btn-sm text-primary me-2 p-0" ng-click="Load_PCRExpense_InfoById(item, true)"><i class="fa fa-edit"></i></button>
+                                            <button class="btn btn-link btn-sm text-danger p-0" ng-click="Delete_PCRExpense_ById(item.GuID)"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                     <tr ng-if="DataTableSetting.FilteredExpenseList.length === 0">
-                                        <td colspan="5" class="text-muted py-4 text-center">No records found.</td>
+                                        <td colspan="5" class="text-muted py-5 text-center">No records found.</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center bg-white">
-                        <small class="text-muted">Page {{DataTableSetting.DefaultPage + 1}} of {{numberOfPages()}}</small>
-                        <div class="btn-group">
-                            <button class="btn btn-xs btn-outline-secondary" ng-disabled="DataTableSetting.DefaultPage == 0" ng-click="DataTableSetting.DefaultPage = DataTableSetting.DefaultPage - 1">Prev</button>
 
-                            <button class="btn btn-xs btn-outline-secondary"
+                    <div class="card-footer d-flex justify-content-between align-items-center border-top bg-white py-2">
+                        <small class="text-muted">Page {{DataTableSetting.DefaultPage + 1}} of {{numberOfPages()}}</small>
+                        <div class="btn-group shadow-xs">
+                            <button class="btn btn-sm btn-outline-secondary px-3 py-1" ng-disabled="DataTableSetting.DefaultPage == 0" ng-click="DataTableSetting.DefaultPage = DataTableSetting.DefaultPage - 1">Prev</button>
+                            <button class="btn btn-sm btn-outline-secondary px-3 py-1"
                                     ng-disabled="DataTableSetting.DefaultPage >= (DataTableSetting.FilteredExpenseList.length / DataTableSetting.RecordLength) - 1"
                                     ng-click="DataTableSetting.DefaultPage = DataTableSetting.DefaultPage + 1">
                                 Next

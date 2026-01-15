@@ -305,6 +305,10 @@
     <Compile Include="Areas\Account\Controllers\PCRIncomeManagment_UIController.cs" />
     <Compile Include="Areas\Account\Controllers\PCRReportManagmentController.cs" />
     <Compile Include="Areas\Account\Controllers\PCRReportManagment_UIController.cs" />
+    <Compile Include="Areas\Account\DALHelper\Record_Validator.cs" />
+    <Compile Include="Areas\HumanResource\Controllers\HREmployeeManagmentController.cs" />
+    <Compile Include="Areas\HumanResource\Controllers\HREmployeeManagment_UIController.cs" />
+    <Compile Include="Areas\HumanResource\HumanResourceAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -313,8 +317,12 @@
     <Compile Include="Models\DAL\DALContext.cs" />
     <Compile Include="Models\DAL\DTO\Branch.cs" />
     <Compile Include="Models\DAL\DTO\Company.cs" />
-    <Compile Include="Models\DAL\DTO\ExpenseCategory.cs" />
-    <Compile Include="Models\DAL\DTO\PaymentMethod.cs" />
+    <Compile Include="Models\DAL\DTO\HREmployee.cs" />
+    <Compile Include="Models\DAL\DTO\LK_Bank.cs" />
+    <Compile Include="Models\DAL\DTO\LK_Designation.cs" />
+    <Compile Include="Models\DAL\DTO\LK_EmploymentType.cs" />
+    <Compile Include="Models\DAL\DTO\LK_ExpenseCategory.cs" />
+    <Compile Include="Models\DAL\DTO\LK_PaymentMethod.cs" />
     <Compile Include="Models\DAL\DTO\PCRExpense.cs" />
     <Compile Include="Models\DAL\DTO\PCRIncome.cs" />
     <Compile Include="Models\DAL\DTO\PCRLedger_ByDateRange_VM.cs" />
@@ -338,9 +346,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Account\Scripts\PCRExpenseManagment_UI_Script\CreateUpdate_PCRExpense_UI_Presenter.js" />
-    <Content Include="Areas\Account\Scripts\PCRIncomeManagment_UI_Script\CreateUpdate_PCRIncome_UIPresenter.js" />
-    <Content Include="Areas\Account\Scripts\PCRReportManagment_UI_Script\View_PCRCategorySummary_UI.js" />
+    <Content Include="Areas\Account\Scripts\PCRIncomeManagment_UI_Script\CreateUpdate_PCRIncome_UI_Presenter.js" />
+    <Content Include="Areas\Account\Scripts\PCRReportManagment_UI_Script\View_PCRCategorySummary_UI_Presenter.js" />
     <Content Include="Areas\Account\Scripts\PCRReportManagment_UI_Script\View_PCRLedger_UI_Presenter.js" />
+    <Content Include="Areas\HumanResource\Scripts\HREmployeeManagment_UIScript\CreateUpdate_HRMEmployee_UI_Presenter.js" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\AspNet.ScriptManager.jQuery.UI.Combined.dll" />
@@ -598,6 +607,10 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Areas\Account\Views\PCRReportManagment_UI\View_PCRCategorySummary_UI.cshtml" />
+    <Content Include="Areas\HumanResource\Views\web.config" />
+    <Content Include="Areas\HumanResource\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HumanResource\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HumanResource\Views\HREmployeeManagment_UI\CreateUpdate_HRMEmployee_UI.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1669,6 +1682,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\HumanResource\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Buttons-2.3.4\css\common.scss" />

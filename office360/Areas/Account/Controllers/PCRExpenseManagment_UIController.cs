@@ -11,6 +11,7 @@ namespace office360.Areas.Account.Controllers
         #region REGION FOR :: RENDER VIEWS
         public ActionResult CreateUpdate_PCRExpense_UI()
         {
+            ViewBag.Title = "Add / Edit Expense Record";
             return View();
         }
         #endregion

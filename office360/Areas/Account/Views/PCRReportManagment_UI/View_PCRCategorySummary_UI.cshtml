@@ -3,7 +3,7 @@
 }
 <script src="~/Scripts/angular.min.js"></script>
 <script src="~/Common/CommonScripts/AngularService/GlobalServices.js"></script>
-<script src="~/Areas/Account/Scripts/PCRReportManagment_UI_Script/View_PCRCategorySummary_UI.js"></script>
+<script src="~/Areas/Account/Scripts/PCRReportManagment_UI_Script/View_PCRCategorySummary_UI_Presenter.js"></script>
 <div class="statbox widget box box-shadow">
     <div class="widget-header">
         <div class="row">
@@ -16,49 +16,68 @@
                 <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
                 <li class="breadcrumb-item"><a href="javascript:void(0);">Accounts</a></li>
                 <li class="breadcrumb-item"><a href="javascript:void(0);">Petty Cash Register</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><span>Summary Report</span></li>
+                <li class="breadcrumb-item active" aria-current="page"><span> @ViewBag.Title</span></li>
             </ol>
         </nav>
     </div>
 </div>
 
-<div ng-app="View_PCRSummary_UI" ng-controller="View_PCRSummary_UIController" class="widget-content widget-content-area" style="margin-top:5px">
+<div ng-app="View_PCRSummary_UI" ng-controller="View_PCRSummary_UIController" class="mt-2">
 
-    <div class="row mb-3">
-        <div class="col-md-3" style="position: relative; z-index: 1050;">
-            <label>Start Month</label>
-            <input type="text" name="StartDate" id="TextBoxStartDate" class="form-control" ng-model="DataTableSetting.Filter.StartDate" date-picker-simple required>
-        </div>
-        <div class="col-md-3">
-            <label>End Month</label>
-            <input type="text" name="EndDate" id="TextBoxEndDate" class="form-control" ng-model="DataTableSetting.Filter.EndDate" date-picker-simple required>
-        </div>
-        <div class="col-md-2 align-self-end">
-            <button class="btn btn-primary" ng-click="Populate_PCRExpenseSummary_List()">
-                Load Report
-            </button>
+    <div class="card rounded-4 mb-4 border-0 shadow-sm">
+        <div class="card-body p-3">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-3" style="position: relative; z-index: 1061;">
+                    <label class="form-label small fw-bold text-muted text-uppercase">Start Month</label>
+                    <input type="text" class="form-control form-control-sm rounded-3 shadow-none"
+                           ng-model="DataTableSetting.Filter.StartDate" date-picker-simple required>
+                </div>
+                <div class="col-md-3" style="position: relative; z-index: 1061;">
+                    <label class="form-label small fw-bold text-muted text-uppercase">End Month</label>
+                    <input type="text" class="form-control form-control-sm rounded-3 shadow-none"
+                           ng-model="DataTableSetting.Filter.EndDate" date-picker-simple required>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-sm rounded-3 w-100 fw-bold px-4 py-2 shadow-sm"
+                            ng-click="Populate_PCRExpenseSummary_List()">
+                        <i class="fa fa-sync-alt me-1"></i> Load Report
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="table-responsive" ng-if="PCRExpenseSummaryList.length" style="overflow-x: auto; overflow-y: visible !important;">
-        <table class="table-bordered table-hover table">
-            <thead class="thead-light">
-                <tr>
-                    <th class="bg-light font-weight-bold" style="position: sticky; left: 0; z-index: 3; background-color: #f8f9fa;">Expense Category</th>
-                    <th class="sticky-top" style=" z-index: 2" ng-repeat="month in DynamicMonthHeaderList">{{ month }}</th>
-                    <th class="sticky-top">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="row in PCRExpenseSummaryList">
-                    <td class="bg-light font-weight-bold" style="position: sticky; left: 0; z-index: 1;">{{ row.ExpenseCategory }}</td>
-                    <td ng-repeat="month in DynamicMonthHeaderList">{{ row[month] | number:2 }}</td>
-                    <td class="font-weight-bold">{{ row.SummaryTotal | number:2 }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="card rounded-4 overflow-hidden border-0 shadow-sm" ng-if="PCRExpenseSummaryList.length" style="position: relative; z-index: 1;">
+        <div class="table-responsive" style="max-height: 600px; overflow-y: auto;">
+            <table class="table-hover table-bordered mb-0 table align-middle" style="font-size: 0.85rem;">
+                <thead class="table-light sticky-top" style="z-index: 1020;">
+                    <tr>
+                        <th class="bg-light border-end shadow-sm" style="position: sticky; left: 0; z-index: 1025; min-width: 200px;">Expense Category</th>
+                        <th class="font-monospace text-center" ng-repeat="month in DynamicMonthHeaderList">{{ month }}</th>
+                        <th class="bg-dark px-3 text-end text-white">Grand Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in PCRExpenseSummaryList">
+                        <td class="bg-light fw-bold border-end" style="position: sticky; left: 0; z-index: 1;">{{ row.ExpenseCategory }}</td>
+                        <td class="font-monospace text-end" ng-repeat="month in DynamicMonthHeaderList">
+                            <span ng-class="{'text-muted opacity-50': row[month] == 0}">
+                                {{ row[month] > 0 ? (row[month] | number:2) : '—' }}
+                            </span>
+                        </td>
+                        <td class="fw-bold bg-light-subtle font-monospace px-3 text-end">
+                            {{ row.SummaryTotal | number:2 }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div ng-if="!PCRExpenseSummaryList.length" class="text-muted mt-4 text-center">
-        No data available for selected range
+    <div ng-if="!PCRExpenseSummaryList.length" class="card rounded-4 mt-4 border-0 p-5 text-center shadow-sm">
+        <div class="py-4">
+            <i class="fa fa-folder-open fa-3x text-muted mb-3 opacity-25"></i>
+            <h5 class="text-muted fw-normal">No data available for the selected range</h5>
+            <p class="small text-muted">Try adjusting your Start or End month filters.</p>
+        </div>
     </div>
 </div>
