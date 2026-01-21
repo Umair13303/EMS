@@ -154,5 +154,99 @@ namespace office360.Areas.HumanResource.Controllers
             }
         }
         #endregion
+
+        #region REGION FOR :: DELETE DATA FROM DBO.PCRIncome FOR LIST
+        [HttpPost]
+        public IHttpActionResult Delete_RecordByGuID(Guid? GuID)
+        {
+            int? Response = (int?)Http_DB_Response.CODE_BAD_REQUEST;
+            try
+            {
+                if (GuID == null)
+                {
+                    return BadRequest("Invalid data.");
+                }
+                using (EMSIntegCubeEntities dal = new EMSIntegCubeEntities())
+                {
+                    List<HREmployee> HREmployeeDetail = dal.HREmployee.Where(x => x.GuID == GuID).ToList();
+                    if (HREmployeeDetail.Count > 0)
+                    {
+                        foreach (var HREmployee in HREmployeeDetail)
+                        {
+                            HREmployee.Status = false;
+                        }
+                        Response = (int?)Http_DB_Response.CODE_DATA_DELETED;
+                        dal.SaveChanges();
+                    }
+                    else
+                    {
+                        Response = (int?)Http_DB_Response.CODE_DATA_DOES_NOT_EXIST;
+                    }
+
+                }
+                string Message = HttpServerStatus.HTTP_DB_TransactionMessagByStatusCode(Response);
+
+                return Ok(new { message = Message, status = Response });
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+        #endregion
+
+        #region REGION FOR :: GET DATA FROM DBO.PCRExpense FOR LIST
+        [HttpGet]
+        public IHttpActionResult GET_HREmployeeList()
+        {
+            try
+            {
+                using (EMSIntegCubeEntities dal = new EMSIntegCubeEntities())
+                {
+                    dal.Configuration.LazyLoadingEnabled = false;
+                    dal.Configuration.ProxyCreationEnabled = false;
+
+
+                    int CompanyId = 1;
+
+                    #region PCR EXPENSE LIST
+                    var HREmployeeList = (from E in dal.HREmployee.AsNoTracking()
+                                          join ET in dal.LK_EmploymentType on E.EmploymentTypeId equals ET.Id
+                                          join D in dal.LK_Designation on E.DesignationId equals D.Id
+                                          join B in dal.LK_Bank on E.BankId equals B.Id
+
+
+                                          where E.CompanyId == CompanyId && E.Status == true
+                                          orderby E.CreatedOn descending
+                                          select new
+                                          {
+                                              E.GuID,
+                                              E.EmployeeName,
+                                              E.DateofJoining,
+                                              E.CNICNumber,
+                                              E.MobileNumber,
+                                              E.EmailAddress,
+                                              E.AccountNumber,
+                                              E.DesignationId,
+                                              E.EmploymentTypeId,
+                                              E.BankId,
+                                              Designation = D.Description,
+                                              EmploymentType = ET.Description,
+                                              Bank = B.Description,
+
+                                          }).ToList();
+
+                    #endregion
+
+                    return Ok(HREmployeeList);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+        #endregion
     }
 }

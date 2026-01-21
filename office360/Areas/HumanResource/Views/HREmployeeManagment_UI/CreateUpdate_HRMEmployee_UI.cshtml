@@ -64,7 +64,7 @@
                                 <div class="text-danger small mt-1" ng-show="HREmployeeForm.CNICNumber.$touched && HREmployeeForm.CNICNumber.$invalid">Required.</div>
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label class="form-label">Mobile No</label> 
+                                <label class="form-label">Mobile No</label>
                                 <input type="text" name="MobileNumber" class="form-control MobileNumber mask-auto-init" placeholder="Mobile No" ng-model="HREmployee.MobileNumber" required model-view-value="true">
                                 <div class="text-danger small mt-1" ng-show="HREmployeeForm.MobileNumber.$touched && HREmployeeForm.MobileNumber.$invalid">Required.</div>
                             </div>
@@ -101,7 +101,55 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-7">
+                <div class="card rounded border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <div class="border-bottom bg-light p-2">
+                            <input type="text" class="form-control col-3 form-control-sm" placeholder="Search here to filter.." ng-model="DataTableSetting.Filter.Search">
+                        </div>
+                        <div class="overflow-auto" style="max-height: 400px;">
+                            <table class="table-bordered table-sm mb-0 table" style="font-size: 0.85rem;">
+                                <thead class="table-light sticky-top shadow-sm">
+                                    <tr>
+                                        <th class="ps-3">Joining</th>
+                                        <th>Employee</th>
+                                        <th>CNIC</th>
+                                        <th>Mobile</th>
+                                        <th class="text-end">Type</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in (DataTableSetting.HREmployeeList| filter: DataTableSetting.Filter.Search) | startFrom:DataTableSetting.DefaultPage*DataTableSetting.RecordLength | limitTo:DataTableSetting.RecordLength track by item.GuID">
+                                        <td class="ps-3 align-middle">{{item.DateofJoining | date:'dd-MMM-yyyy'}}</td>
+                                        <td class="text-truncate align-middle" style="max-width: 200px;">{{item.EmployeeName}}</td>
+                                        <td class="text-truncate align-middle" style="max-width: 200px;">{{item.CNICNumber}}</td>
+                                        <td class="text-truncate align-middle" style="max-width: 200px;">{{item.MobileNumber}}</td>
+                                        <td class="fw-bold text-success text-end align-middle">{{item.EmploymentType}}</td>
+                                        <td class="text-center align-middle">
+                                            <button class="btn btn-link btn-sm text-primary me-2 p-0" ng-click="Load_HREmployee_InfoById(item, true)"><i class="fa fa-edit"></i></button>
+                                            <button class="btn btn-link btn-sm text-danger p-0" ng-click="Delete_HREmployee_ById(item.GuID)"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
+                    <div class="card-footer d-flex justify-content-between align-items-center border-top bg-white py-2">
+                        <small class="text-muted">Page {{DataTableSetting.DefaultPage + 1}} of {{numberOfPages()}}</small>
+                        <div class="btn-group shadow-xs">
+                            <button class="btn btn-sm btn-outline-secondary px-3 py-1" ng-disabled="DataTableSetting.DefaultPage == 0" ng-click="DataTableSetting.DefaultPage = DataTableSetting.DefaultPage - 1">Prev</button>
+                            <button class="btn btn-sm btn-outline-secondary px-3 py-1"
+                                    ng-disabled="DataTableSetting.DefaultPage >= (DataTableSetting.HREmployeeList.length / DataTableSetting.RecordLength) - 1"
+                                    ng-click="DataTableSetting.DefaultPage = DataTableSetting.DefaultPage + 1">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </form>
 </div>
